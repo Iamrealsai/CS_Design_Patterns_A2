@@ -1,3 +1,5 @@
+package studentCoursesBackup.myTree;
+
 import java.util.ArrayList;
 
 class Node
