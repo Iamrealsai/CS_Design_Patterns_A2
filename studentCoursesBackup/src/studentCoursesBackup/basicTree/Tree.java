@@ -6,11 +6,19 @@ class Tree
 {
     private Node root; // the only data field in the tree
 
+    /**
+     *Constructor
+     **/
     public Tree(){
 	root = null;
     }
-    
-    /*    public Node find(int key){
+
+    /**
+     *finds the node with the respective BNumber
+     *@param key the BNumber of the node to be found
+     *@return the node 
+     **/
+     public Node find(int key){
 	Node current = root;
 	while(current.getBNumber()!=key){
 	    if(key<current.getBNumber()){
@@ -23,5 +31,5 @@ class Tree
 	    }
 	}
 	return current;
-    }*/
+    }
 }
