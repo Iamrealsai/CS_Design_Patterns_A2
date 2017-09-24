@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class Node
 {
     private int bNumber; // the Bnumber of students
+    private ArrayList<Integer> refID; // list of reference Ids of observers
     private ArrayList<String> subjects; // list of subjects taken by students
     private Node leftChild;
     private Node rightChild;
@@ -12,6 +13,7 @@ class Node
     public Node(int bNumberIn){
 	bNumber = bNumberIn;
 	subjects = new ArrayList<String>();
+	refID = new ArrayList<Integer>();
 	leftChild = null;
 	rightChild = null;
     }
