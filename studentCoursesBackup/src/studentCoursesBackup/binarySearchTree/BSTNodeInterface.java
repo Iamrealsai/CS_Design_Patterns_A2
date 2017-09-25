@@ -1,4 +1,4 @@
-package studentCoursesBackup.BST;
+package studentCoursesBackup.binarySearchTree;
 
 public interface BSTNodeInterface
 {
@@ -7,8 +7,8 @@ public interface BSTNodeInterface
     public void setRightChild(BSTNodeInterface nodeIn);
     public BSTNodeInterface getLeftChild();
     public void setLeftChild(BSTNodeInterface nodeIn);
-    public int getLastOperation();//temporary method-> to see if node deleted Or inserted in last occuource
-    public int setLastOperation(int iIn);//temporary method -> sets the last operation 1-for insertion, 2-for deletion
+    //    public int getLastOperation();//temporary method-> to see if node deleted Or inserted in last occuource
+    // public int setLastOperation(int iIn);//temporary method -> sets the last operation 1-for insertion, 2-for deletion
     public void insertSubject(String sIn);//to insert a subject
     public void deleteSubject(String sIn);//to delete a subject
 }

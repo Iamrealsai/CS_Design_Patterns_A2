@@ -1,15 +1,15 @@
 package studentCoursesBackup.myTree;
 
 import java.util.ArrayList;
-import studentCoursesBackup.BST.BSTNodeInterface;
+import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
 import studentCoursesBackup.myTree.SubjectInterface;
 import studentCoursesBackup.myTree.ObserverInterface;
 
-class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
+public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 {
     private int bNumber; //unique ID
     private ArrayList<String> subjects;//subject list
-    private ArrayList<ObserverInterface> observers;//for observers
+    private ArrayList<BSTNodeInterface> observers;//for observers
     private BSTNodeInterface leftChild; // left child
     private BSTNodeInterface rightChild;//right child
     private int operationIndex; // 1 if insert, 2 if delete
@@ -21,10 +21,26 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public Node(int bNumberIn){
 	bNumber = bNumberIn;
 	subjects = new ArrayList<String>();
-	observers = new ArrayList<ObserverInterface>();
+	observers = new ArrayList<BSTNodeInterface>();
 	leftChild = null;
 	rightChild = null;
 	operationIndex = 0;
+    }
+
+        /**
+     *gets index for last operation, 1 for insertion & 2 for deletion
+     *@return the int value corresponding to operation
+     **/
+    public int getLastOperation(){
+	return operationIndex;
+    }
+
+    /**
+     *sets the int flag for last operation, 1 for insertion & 2 for deletion
+     *@param the int index to be updated
+     **/
+    public void setLastOperation(int iIn){
+	operationIndex = iIn;
     }
 
     //---------------BSTnodeinterface------------------------
@@ -69,28 +85,12 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     }
 
     /**
-     *gets index for last operation, 1 for insertion & 2 for deletion
-     *@return the int value corresponding to operation
-     **/
-    public int getLastOperation(){
-	return operationIndex;
-    }
-
-    /**
-     *sets the int flag for last operation, 1 for insertion & 2 for deletion
-     *@param the int index to be updated
-     **/
-    public void setLastOperation(int iIn){
-	operationIndex = iIn;
-    }
-
-    /**
      *inserts subject for a specific node
      *@param the subject to be inserted
      **/
-    public void insertSubject(Sting sIn){
+    public void insertSubject(String sIn){
 	if(!subjects.contains(sIn)){
-	    subjects.add(s);
+	    subjects.add(sIn);
 	    // this.setLastOperation(1);// 1 for insertion
 	}
 	this.setLastOperation(1);//1 for insertion
@@ -118,7 +118,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
      *@param operationindex the int flag to decide to delete(2) or insert(1)
      *@param sIn, the subject name to be inserted or deleted
      **/
-    public void update(ObserverInterface o, int operationIndex, String sIn){
+    public void update(BSTNodeInterface node, int operationIndex, String sIn){
 	/*if(!observers.isEmpty()){
 	    if(operationIndex==1){
 		for(ObserverInterface temp : observers){
@@ -132,9 +132,9 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	}*/
 	//this.setLastOperation(0);//resets index flag after operation
 	if(operationIndex==1){
-	    o.insertSubject(sIn);
+	    node.insertSubject(sIn);
 	}else if(operationIndex==2){
-	    o.deleteSubject(sIn);
+	    node.deleteSubject(sIn);
 	}
     }
 
@@ -144,7 +144,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
      *adds observers to ArrayList
      *@param the ObserverInterface to be added
      **/
-    public void registerObserver(ObserverInterface o){
+    public void registerObserver(BSTNodeInterface o){
 	observers.add(o);
     }
 
@@ -152,7 +152,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
      *removes observer from ArrayList
      *@param the Observerinterface to be removed
      **/
-    public void removeObserver(ObserverInterface o){
+    public void removeObserver(BSTNodeInterface o){
 	if(observers.contains(o)){
 	    observers.remove(o);
 	}
@@ -165,7 +165,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
      **/
     public void notifyAll(int operationIndex,String sIn){
 	if(!observers.isEmpty()){
-	    for(ObserverInterface temp : observers){
+	    for(BSTNodeInterface temp : observers){
 		update(temp,operationIndex,sIn);
 	    }
 	}

@@ -1,9 +1,10 @@
 package studentCoursesBackup.util;
 
-import studentCoursesBackup.BST;
+import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
+import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
 
-class TreeBuilder implements TreeInterface
+public class TreeBuilder implements TreeInterface
 {
     private BSTNodeInterface masterRoot;//root node for main tree
     private BSTNodeInterface backupRoot1;//root node for backup 1 tree
