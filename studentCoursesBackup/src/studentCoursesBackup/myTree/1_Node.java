@@ -113,7 +113,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     //-------------------Observer Interface--------------------------
 
     /**
-     *updates observer as to delete or insert a subject to a node
+     *updates observer as to delete or insert a subject
      *@param o the ObserverInterface
      *@param operationindex the int flag to decide to delete(2) or insert(1)
      *@param sIn, the subject name to be inserted or deleted
