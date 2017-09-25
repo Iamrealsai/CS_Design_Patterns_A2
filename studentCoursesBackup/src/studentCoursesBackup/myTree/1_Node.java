@@ -83,6 +83,32 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public void setLastOperation(int iIn){
 	operationIndex = iIn;
     }
+
+    /**
+     *inserts subject for a specific node
+     *@param the subject to be inserted
+     **/
+    public void insertSubject(Sting sIn){
+	if(!subjects.contains(sIn)){
+	    subjects.add(s);
+	    // this.setLastOperation(1);// 1 for insertion
+	}
+	this.setLastOperation(1);//1 for insertion
+	//ignores existing values
+    }
+
+    /**
+     *deletes a subject from a specific node
+     *@param the subject to be deleted
+     **/
+    public void deleteSubject(String sIn){
+	if(subjects.contains(sIn)){
+	    subjects.remove(subjects.indexOf(sIn));
+	    // this.setLastOperation(2);//2 for deletion
+	}
+	this.setLastOperation(2);//2 for deletion
+	//ignores non-existant deletions
+    }
     
     //-----------------------------------------------
 }
