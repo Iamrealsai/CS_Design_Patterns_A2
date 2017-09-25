@@ -134,6 +134,10 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 
     //-------------------Subject Interface---------------------------
 
+    /**
+     *adds observers to ArrayList
+     *@param the ObserverInterface to be added
+     **/
     public void registerObserver(ObserverInterface o){
 	observers.add(o);
     }
