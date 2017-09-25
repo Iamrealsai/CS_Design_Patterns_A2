@@ -1,8 +1,9 @@
 package studentCoursesBackup.myTree;
 
 import java.util.ArrayList;
+import studentCoursesBackup.myTree;
 
-class Node
+class Node implements SubjectI
 {
     private int bNumber; // the Bnumber of students
     private ArrayList<Integer> refID; // list of reference Ids of observers
