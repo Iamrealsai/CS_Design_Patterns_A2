@@ -101,9 +101,9 @@ public class TreeBuilder implements TreeInterface
 		    output += tempNode.getNodeIndex()+": ";
 		    if(!subjectList.isEmpty()){
 			for(int i=0;i<subjectList.size()-1;i++){
-			    output += subjectList[i]+", ";
+			    output += subjectList.get(i)+", ";
 			}
-			output += subjectList[subjectList.size()-1];
+			output += subjectList.get(subjectList.size()-1);
 		    }
 		    output += "\n";    
 		}
