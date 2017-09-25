@@ -9,8 +9,8 @@ import java.util.Stack;
 public class TreeBuilder implements TreeInterface
 {
     private BSTNodeInterface masterRoot;//root node for main tree
-    private BSTNodeInterface backupRoot1;//root node for backup 1 tree
-    private BSTNodeInterface backupRoot2;//root node for backup 2 tree
+    private BSTNodeInterface backupRoot1;//root node for backup tree 1
+    private BSTNodeInterface backupRoot2;//root node for backup tree 2
 
     /**
      *Constructor
