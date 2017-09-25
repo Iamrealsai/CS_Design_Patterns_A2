@@ -53,7 +53,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     }
 
     /**
-     *get emthod for left child
+     *get method for left child
      *@return the left child
      **/
     public BSTNodeInterface getLeftChild(){
@@ -67,6 +67,8 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public void setLeftChild(BSTNodeInterface nodeIn){
 	leftChild = nodeIn;
     }
+
+    
     
     //-----------------------------------------------
 }
