@@ -52,7 +52,21 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	rightChild = nodeIn;
     }
 
-    
+    /**
+     *get emthod for left child
+     *@return the left child
+     **/
+    public BSTNodeInterface getLeftChild(){
+	return this.leftChild;
+    }
+
+    /**
+     *sets left child
+     *@param nodeIn, the left child node
+     **/
+    public void setLeftChild(BSTNodeInterface nodeIn){
+	leftChild = nodeIn;
+    }
     
     //-----------------------------------------------
 }
