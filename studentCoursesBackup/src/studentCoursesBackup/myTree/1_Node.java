@@ -113,12 +113,13 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     //-------------------Observer Interface--------------------------
 
     /**
-     *updates observers as to delete or insert a subject to a node
+     *updates observer as to delete or insert a subject to a node
+     *@param o the ObserverInterface
      *@param operationindex the int flag to decide to delete(2) or insert(1)
      *@param sIn, the subject name to be inserted or deleted
      **/
-    public void update(int operationIndex, String sIn){
-	if(!observers.isEmpty()){
+    public void update(ObserverInterface o, int operationIndex, String sIn){
+	/*if(!observers.isEmpty()){
 	    if(operationIndex==1){
 		for(ObserverInterface temp : observers){
 		    temp.insertSubject(sIn);
@@ -128,8 +129,13 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 		    temp.deleteSubject(sIn);
 		}
 	    }
+	}*/
+	//this.setLastOperation(0);//resets index flag after operation
+	if(operationIndex==1){
+	    o.insertSubject(sIn);
+	}else if(operationIndex==2){
+	    o.deleteSubject(sIn);
 	}
-	this.setLastOperation(0);//resets index flag after operation
     }
 
     //-------------------Subject Interface---------------------------
@@ -141,8 +147,31 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public void registerObserver(ObserverInterface o){
 	observers.add(o);
     }
-    
 
+    /**
+     *removes observer from ArrayList
+     *@param the Observerinterface to be removed
+     **/
+    public void removeObserver(ObserverInterface o){
+	if(observers.contains(o)){
+	    observers.remove(o);
+	}
+    }
+
+    /**
+     *updates state of all Observers
+     *@param operationIndex - 1 for insertion, 2 for deletion
+     *@param sIn, the subject name to be inserted or deleted
+     **/
+    public void notifyAll(int operationIndex,String sIn){
+	if(!observers.isEmpty()){
+	    for(ObserverInterface temp : observers){
+		update(temp,operationIndex,sIn);
+	    }
+	}
+	this.setLastOperation(0);//resets index flag
+    }
+    
 
 
     
