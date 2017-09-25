@@ -25,6 +25,17 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	rightChild = null;
     }
 
+    //-----------------------------------------------
+    /**
+     *gets the index of the node
+     *@return the index(BNumber)
+     **/
+    public int getNodeIndex(){
+	return this.bNumber;
+    }
+
     
     
+    
+    //-----------------------------------------------
 }
