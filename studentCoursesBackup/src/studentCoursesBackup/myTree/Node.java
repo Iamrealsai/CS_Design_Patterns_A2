@@ -15,7 +15,18 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
     private int operationIndex; // 1 if insert, 2 if delete
 
     /**
-     *Constructor
+     *Empty Constructor for initial root nodes
+     **/
+    public Node(){
+	subjects = new ArrayList<String>();
+	observers = new ArrayList<BSTNodeInterface>();
+	leftChild = null;
+	rightChild = null;
+	operationIndex = 0;	
+    }
+    
+    /**
+     *Constructor for specific node
      *@param bNumberin, the BNumber of student
      **/
     public Node(int bNumberIn){
