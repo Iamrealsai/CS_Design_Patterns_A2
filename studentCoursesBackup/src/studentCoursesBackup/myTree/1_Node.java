@@ -27,7 +27,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	operationIndex = 0;
     }
 
-    //-----------------------------------------------
+    //---------------BSTnodeinterface------------------------
     /**
      *gets the index of the node
      *@return the index(BNumber)
@@ -110,5 +110,29 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	//ignores non-existant deletions
     }
     
-    //-----------------------------------------------
+    //-------------------Observer Interface--------------------------
+
+    /**
+     *updates observers as to delete or insert a subject to a node
+     *@param operationindex the int flag to decide to delete(2) or insert(1)
+     *@param sIn, the subject name to be inserted or deleted
+     **/
+    public void update(int operationIndex, String sIn){
+	if(!observers.isEmpty()){
+	    if(operationIndex==1){
+		for(BSTNodeInterface temp : observers){
+		    temp.insertSubject(sIn);
+		}
+	    }else if(operationIndex==2){
+		for(BSTNodeInterface temp : observers){
+		    temp.deleteSubject(sIn);
+		}
+	    }
+	}
+	this.setLastOperation(0);//resets index flag after operation
+    }
+
+
+
+    
 }
