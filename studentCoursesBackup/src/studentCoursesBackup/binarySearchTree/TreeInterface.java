@@ -5,5 +5,5 @@ public interface TreeInterface
     public BSTNodeInterface find(BSTNodeInterface root,int index);
     // public BSTNodeInterface getRootNode();
     public void insertNode(BSTNodeInterface root,int index);
-    public String printNodes();
+    public String printNodes(BSTNodeInterface root);
 }

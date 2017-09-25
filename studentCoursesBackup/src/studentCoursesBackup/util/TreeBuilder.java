@@ -14,9 +14,9 @@ public class TreeBuilder implements TreeInterface
      *Constructor
      **/
     public TreeBuilder(){
-	masterRoot = new Node();
-	backupRoot1 = new Node();
-	backupRoot2 = new Node();
+	masterRoot = null;
+	backupRoot1 = null;
+	backupRoot2 = null;
     }
 
     
@@ -74,6 +74,10 @@ public class TreeBuilder implements TreeInterface
 		}
 	    }
 	}
+    }
+
+    public String printNodes(BSTNodeInterface root){
+	return "d";
     }
     
     //-------------------------------------------------
