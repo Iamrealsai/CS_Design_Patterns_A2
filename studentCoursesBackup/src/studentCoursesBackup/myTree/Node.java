@@ -68,4 +68,14 @@ class Node
 	}
     }
 
+    /**
+     *removes a subject from a student
+     *@param the subject String name
+     **/
+    public void deleteSubject(String s){
+	if(subjects.contains(s)){
+	    subjects.remove(subjects.indexOf(s));
+	}
+    }
+
 }
