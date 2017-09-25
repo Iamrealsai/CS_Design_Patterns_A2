@@ -11,9 +11,25 @@ class TreeBuilder implements TreeInterface
 
     //----------------TreeInterface--------------------
 
+    /**
+     *gets the BSTNodeinterface for a specific BNumber in a specific tree
+     *@param root, the root node for a specific tree
+     *@param index, the unique index(BNumber) to search for
+     *@return the BSTnodeinterface that complies with the index in a specific tree
+     **/
     public BSTNodeInterface find(BSTNodeInterface root,int index){
 	BSTNodeInterface current = root;
-	
+	while(current.getNodeIndex()!=index){
+	    if(index<current.getNodeIndex()){
+		current = current.getLeftChild();
+	    }else{
+		current = current.getRightChild();
+	    }
+	    if(current==null){
+		return null;
+	    }
+	}
+	return current;
     }
     
     //-------------------------------------------------
