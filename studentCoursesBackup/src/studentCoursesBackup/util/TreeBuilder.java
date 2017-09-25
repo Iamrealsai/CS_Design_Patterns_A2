@@ -3,6 +3,7 @@ package studentCoursesBackup.util;
 import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class TreeBuilder implements TreeInterface
@@ -77,6 +78,11 @@ public class TreeBuilder implements TreeInterface
 	}
     }
 
+    /**
+     *returns a string of all nodes in acsending order
+     *@param root, the root of the tree to be traversed
+     *@return the string output of traversal
+     **/
     public String printNodes(BSTNodeInterface root){
 	String output="";
 	try{
@@ -91,8 +97,15 @@ public class TreeBuilder implements TreeInterface
 		    current = current.getLeftChild();
 		}else{
 		    BSTNodeInterface tempNode = temp.pop();
+		    ArrayList<String> subjectList = tempNode.getAllSubjects();
 		    output += tempNode.getNodeIndex()+": ";
-		    //for(){}
+		    if(!subjectList.isEmpty()){
+			for(int i=0;i<subjectList.size()-1;i++){
+			    output += subjectList[i]+", ";
+			}
+			output += subjectList[subjectList.size()-1];
+		    }
+		    output += "\n";    
 		}
 	    }
 	}catch(RuntimeException e){
