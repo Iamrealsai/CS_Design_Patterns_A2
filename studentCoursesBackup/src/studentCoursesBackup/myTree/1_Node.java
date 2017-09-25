@@ -68,7 +68,21 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	leftChild = nodeIn;
     }
 
-    
+    /**
+     *gets index for last operation, 1 for insertion & 2 for deletion
+     *@return the int value corresponding to operation
+     **/
+    public int getLastOperation(){
+	return operationIndex;
+    }
+
+    /**
+     *sets the int flag for last operation, 1 for insertion & 2 for deletion
+     *@param the int index to be updated
+     **/
+    public void setLastOperation(int iIn){
+	operationIndex = iIn;
+    }
     
     //-----------------------------------------------
 }
