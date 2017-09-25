@@ -36,8 +36,22 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	return this.bNumber;
     }
 
-    
-    
+    /**
+     *gets the right child of the node
+     *@return the right child
+     **/
+    public BSTNodeInterface getRightChild(){
+	return this.rightChild;
+    }
+
+    /**
+     *setter for right child
+     *@param nodeIn, the node to be added
+     **/
+    public void setRightChild(BSTNodeInterface nodeIn){
+	rightChild = nodeIn;
+    }
+
     
     
     //-----------------------------------------------
