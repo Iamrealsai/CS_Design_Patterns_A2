@@ -9,7 +9,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 {
     private int bNumber; //unique ID
     private ArrayList<String> subjects;//subject list
-    private ArrayList<BSTNodeInterface> observers;//for observers
+    private ArrayList<ObserverInterface> observers;//for observers
     private BSTNodeInterface leftChild; // left child
     private BSTNodeInterface rightChild;//right child
     private int operationIndex; // 1 if insert, 2 if delete
@@ -21,7 +21,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public Node(int bNumberIn){
 	bNumber = bNumberIn;
 	subjects = new ArrayList<String>();
-	observers = new ArrayList<BSTNodeInterface>();
+	observers = new ArrayList<ObserverInterface>();
 	leftChild = null;
 	rightChild = null;
 	operationIndex = 0;
@@ -120,17 +120,24 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     public void update(int operationIndex, String sIn){
 	if(!observers.isEmpty()){
 	    if(operationIndex==1){
-		for(BSTNodeInterface temp : observers){
+		for(ObserverInterface temp : observers){
 		    temp.insertSubject(sIn);
 		}
 	    }else if(operationIndex==2){
-		for(BSTNodeInterface temp : observers){
+		for(ObserverInterface temp : observers){
 		    temp.deleteSubject(sIn);
 		}
 	    }
 	}
 	this.setLastOperation(0);//resets index flag after operation
     }
+
+    //-------------------Subject Interface---------------------------
+
+    public void registerObserver(ObserverInterface o){
+	observers.add(o);
+    }
+    
 
 
 
