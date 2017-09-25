@@ -43,9 +43,37 @@ public class TreeBuilder implements TreeInterface
 	return current;
     }
 
+    /**
+     *inserts a new node with a specific into a given tree
+     *@param root, the root node for the required tree
+     *@param index, the unique BNumber of student
+     **/
     public void insertNode(BSTNodeInterface root,int index){
-	BSTNodeInterface node = new Node(index);
-	if(find)
+	if(find(root,index)==null){
+	    BSTNodeInterface newNode = new Node(index);
+	    if(root == null){
+		root = newNode;
+	    }else{
+		BSTNodeInterface current = root;
+		BSTNodeInterface parent;
+		while(true){
+		    parent = current;
+		    if(index<current.getNodeIndex()){
+			current = current.getLeftChild();
+			if(current == null){
+			    parent.setLeftChild(newNode);
+			    break;
+			}
+		    }else{
+			current = current.getRightChild();
+			if(current == null){
+			    parent.setRightChild(newNode);
+			    break;
+			}
+		    }
+		}
+	    }
+	}
     }
     
     //-------------------------------------------------
