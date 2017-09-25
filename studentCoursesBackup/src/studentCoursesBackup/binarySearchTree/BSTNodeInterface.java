@@ -1,5 +1,7 @@
 package studentCoursesBackup.binarySearchTree;
 
+import java.util.ArrayList;
+
 public interface BSTNodeInterface
 {
     public int getNodeIndex();//returns the BNumber as the index
@@ -11,4 +13,5 @@ public interface BSTNodeInterface
     // public int setLastOperation(int iIn);//temporary method -> sets the last operation 1-for insertion, 2-for deletion
     public void insertSubject(String sIn);//to insert a subject
     public void deleteSubject(String sIn);//to delete a subject
+    public ArrayList<String> getAllSubjects();
 }

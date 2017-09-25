@@ -3,6 +3,7 @@ package studentCoursesBackup.util;
 import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
+import java.util.Stack;
 
 public class TreeBuilder implements TreeInterface
 {
@@ -77,7 +78,28 @@ public class TreeBuilder implements TreeInterface
     }
 
     public String printNodes(BSTNodeInterface root){
-	return "d";
+	String output="";
+	try{
+	    if(root == null){
+		throw new RuntimeException("tree is empty");
+	    }
+	    Stack<BSTNodeInterface> temp = new Stack<BSTNodeInterface>();
+	    BSTNodeInterface current = root;
+	    while(!temp.isEmpty() || current !=null){
+		if(current !=null){
+		    temp.push((BSTNodeInterface) current);
+		    current = current.getLeftChild();
+		}else{
+		    BSTNodeInterface tempNode = temp.pop();
+		    output += tempNode.getNodeIndex()+": ";
+		    //for(){}
+		}
+	    }
+	}catch(RuntimeException e){
+	    e.printStackTrace();
+	    System.exit(1);
+	}
+	return output;
     }
     
     //-------------------------------------------------

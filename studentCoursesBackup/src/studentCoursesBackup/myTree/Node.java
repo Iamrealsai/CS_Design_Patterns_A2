@@ -42,7 +42,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *gets index for last operation, 1 for insertion & 2 for deletion
      *@return the int value corresponding to operation
      **/
-    public int getLastOperation(){
+    private int getLastOperation(){
 	return operationIndex;
     }
 
@@ -50,7 +50,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *sets the int flag for last operation, 1 for insertion & 2 for deletion
      *@param the int index to be updated
      **/
-    public void setLastOperation(int iIn){
+    private void setLastOperation(int iIn){
 	operationIndex = iIn;
     }
 
@@ -119,6 +119,14 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
 	}
 	this.setLastOperation(2);//2 for deletion
 	//ignores non-existant deletions
+    }
+
+    /**
+     *gets all subject list for a node
+     *@return the arraylist containing all subjects
+     **/
+    public ArrayList<String> getAllSubjects(){
+	return subjects;
     }
     
     //-------------------Observer Interface--------------------------
