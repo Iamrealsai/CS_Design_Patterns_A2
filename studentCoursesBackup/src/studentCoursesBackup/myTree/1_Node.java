@@ -12,6 +12,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
     private ArrayList<BSTNodeInterface> observers;//for observers
     private BSTNodeInterface leftChild; // left child
     private BSTNodeInterface rightChild;//right child
+    private int operationIndex; // 1 if insert, 2 if delete
 
     /**
      *Constructor
@@ -23,6 +24,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	observers = new ArrayList<BSTNodeInterface>();
 	leftChild = null;
 	rightChild = null;
+	operationIndex = 0;
     }
 
     //-----------------------------------------------
@@ -34,6 +36,7 @@ class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
 	return this.bNumber;
     }
 
+    
     
     
     
