@@ -32,6 +32,10 @@ public class TreeBuilder implements TreeInterface
 	}
 	return current;
     }
+
+    public void insertNode(BSTNodeInterface nodeIn){
+	BST
+    }
     
     //-------------------------------------------------
 }

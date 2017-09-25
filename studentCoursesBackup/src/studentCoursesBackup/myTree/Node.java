@@ -27,7 +27,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
 	operationIndex = 0;
     }
 
-        /**
+    /**
      *gets index for last operation, 1 for insertion & 2 for deletion
      *@return the int value corresponding to operation
      **/
@@ -120,16 +120,16 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      **/
     public void update(BSTNodeInterface node, int operationIndex, String sIn){
 	/*if(!observers.isEmpty()){
-	    if(operationIndex==1){
-		for(ObserverInterface temp : observers){
-		    temp.insertSubject(sIn);
-		}
-	    }else if(operationIndex==2){
-		for(ObserverInterface temp : observers){
-		    temp.deleteSubject(sIn);
-		}
-	    }
-	}*/
+	  if(operationIndex==1){
+	  for(ObserverInterface temp : observers){
+	  temp.insertSubject(sIn);
+	  }
+	  }else if(operationIndex==2){
+	  for(ObserverInterface temp : observers){
+	  temp.deleteSubject(sIn);
+	  }
+	  }
+	  }*/
 	//this.setLastOperation(0);//resets index flag after operation
 	if(operationIndex==1){
 	    node.insertSubject(sIn);
