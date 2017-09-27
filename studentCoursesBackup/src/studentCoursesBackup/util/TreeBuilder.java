@@ -29,14 +29,20 @@ public class TreeBuilder implements TreeInterface
 	//-----------------------------------------
 	line = inputFile.readLine();
 	while(line!=null){
-
+	    temp nodeIndex = getBNumber(line);
+	    
 	}
 	
 	
     }
 
     //--------------helper functions------------------
-    
+
+    /**
+     *returns the BNumber from the read text file
+     *@param the string input line
+     *@return the BNumber in int format
+     **/
     private int getBNumber(String sIn){
 	//assuming the format would be 1234:A(course name) always
 	return convertToInt(sIn.substring(0,4));
@@ -53,6 +59,23 @@ public class TreeBuilder implements TreeInterface
 	    number = number*10+sIn.charAt(i)-'0';
 	}
 	return number;
+    }
+
+    /**
+     *finds the course to be registered for student
+     *@param sIn the course module to be entered
+     *@return the String name of course if valid, or "" if not
+     **/
+    private String registerForCourse(String sIn){
+	//assuming there are no formatting issues with input text file
+	Char temp = sIn.charAt(sIn.length()-1);
+	String compareStr = "ABCDEFGHIJK";
+	for(int i=0;i<compareStr.length();i++){
+	    if(temp==compareStr.charAt(i)){
+		return (String) temp;
+	    }
+	}
+	return "";
     }
     
     //----------------TreeInterface--------------------
