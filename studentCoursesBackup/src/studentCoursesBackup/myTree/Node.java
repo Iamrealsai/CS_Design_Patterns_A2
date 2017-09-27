@@ -3,8 +3,9 @@ package studentCoursesBackup.myTree;
 import java.util.ArrayList;
 import studentCoursesBackup.myTree.SubjectInterface;
 import studentCoursesBackup.myTree.ObserverInterface;
+import studentCoursesBackup.cloneable.Cloneable;
 
-public class Node implements SubjectInterface, ObserverInterface
+public class Node implements SubjectInterface, ObserverInterface, Cloneable
 {
     private int bNumber; //unique ID
     private ArrayList<String> courses;//course list
@@ -126,6 +127,9 @@ public class Node implements SubjectInterface, ObserverInterface
     public ArrayList<String> getAllCourses(){
 	return courses;
     }
+
+    
+    
     
     //-------------------Observer Interface--------------------------
 
