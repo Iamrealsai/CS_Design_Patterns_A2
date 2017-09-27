@@ -17,8 +17,8 @@ public class Node implements SubjectInterface, ObserverInterface
      *Empty Constructor for initial root nodes
      **/
     public Node(){
-	subjects = new ArrayList<String>();
-	observers = new ArrayList<Node>();
+	courses = new ArrayList<String>();
+	observers = new ArrayList<ObserverInterface>();
 	leftChild = null;
 	rightChild = null;
 	//	operationIndex = 0;	
@@ -30,8 +30,8 @@ public class Node implements SubjectInterface, ObserverInterface
      **/
     public Node(int bNumberIn){
 	bNumber = bNumberIn;
-	subjects = new ArrayList<String>();
-	observers = new ArrayList<Node>();
+	courses = new ArrayList<String>();
+	observers = new ArrayList<ObserverInterface>();
 	leftChild = null;
 	rightChild = null;
 	//	operationIndex = 0;
@@ -174,7 +174,7 @@ public class Node implements SubjectInterface, ObserverInterface
     public void notifyAll(String sIn){
 	if(!observers.isEmpty()){
 	    for(ObserverInterface temp : observers){
-		update(temp,operationIndex,sIn);
+		update(temp,sIn);
 	    }
 	}
 	//this.setLastOperation(0);//resets index flag

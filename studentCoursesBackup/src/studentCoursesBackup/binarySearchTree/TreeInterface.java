@@ -1,5 +1,7 @@
 package studentCoursesBackup.binarySearchTree;
 
+import studentCoursesBackup.myTree.Node;
+
 public interface TreeInterface
 {
     public Node find(Node root,int index);
