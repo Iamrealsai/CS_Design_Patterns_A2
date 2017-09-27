@@ -1,6 +1,5 @@
 package studentCoursesBackup.util;
 
-import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
 import java.util.ArrayList;
