@@ -35,6 +35,24 @@ public class TreeBuilder implements TreeInterface
 	
     }
 
+    //--------------helper functions------------------
+    
+    private int getBNumber(String sIn){
+	return 
+    }
+
+    /**
+     *Converts the string input to an Int
+     *@param sIn the String input which is a number
+     *@return the number in Int format
+     **/
+    private int convertToInt(String sIn){
+	int number=0;
+	for(int i=0;i<sIn.length();i++){
+	    number = number*10+sIn.charAt(i)-'0';
+	}
+	return number;
+    }
     
     //----------------TreeInterface--------------------
 
