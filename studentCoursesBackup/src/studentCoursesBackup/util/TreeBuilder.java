@@ -7,9 +7,9 @@ import java.util.Stack;
 
 public class TreeBuilder implements TreeInterface
 {
-    private BSTNodeInterface masterRoot;//root node for main tree
-    private BSTNodeInterface backupRoot1;//root node for backup tree 1
-    private BSTNodeInterface backupRoot2;//root node for backup tree 2
+    private Node masterRoot;//root node for main tree
+    private Node backupRoot1;//root node for backup tree 1
+    private Node backupRoot2;//root node for backup tree 2
 
     /**
      *Constructor
@@ -24,13 +24,13 @@ public class TreeBuilder implements TreeInterface
     //----------------TreeInterface--------------------
 
     /**
-     *gets the BSTNodeinterface for a specific BNumber in a specific tree
+     *gets the Node for a specific BNumber in a specific tree
      *@param root, the root node for a specific tree
      *@param index, the unique index(BNumber) to search for
-     *@return the BSTnodeinterface that complies with the index in a specific tree
+     *@return the Node that complies with the index in a specific tree
      **/
-    public BSTNodeInterface find(BSTNodeInterface root,int index){
-	BSTNodeInterface current = root;
+    public Node find(Node root,int index){
+	Node current = root;
 	while(current.getNodeIndex()!=index){
 	    if(index<current.getNodeIndex()){
 		current = current.getLeftChild();
@@ -49,14 +49,14 @@ public class TreeBuilder implements TreeInterface
      *@param root, the root node for the required tree
      *@param index, the unique BNumber of student
      **/
-    public void insertNode(BSTNodeInterface root,int index){
+    public void insertNode(Node root,int index){
 	if(find(root,index)==null){
-	    BSTNodeInterface newNode = new Node(index);
+	    Node newNode = new Node(index);
 	    if(root == null){
 		root = newNode;
 	    }else{
-		BSTNodeInterface current = root;
-		BSTNodeInterface parent;
+		Node current = root;
+		Node parent;
 		while(true){
 		    parent = current;
 		    if(index<current.getNodeIndex()){
@@ -82,27 +82,27 @@ public class TreeBuilder implements TreeInterface
      *@param root, the root of the tree to be traversed
      *@return the string output of traversal
      **/
-    public String printNodes(BSTNodeInterface root){
+    public String printNodes(Node root){
 	String output="";
 	try{
 	    if(root == null){
 		throw new RuntimeException("tree is empty");
 	    }
-	    Stack<BSTNodeInterface> temp = new Stack<BSTNodeInterface>();
-	    BSTNodeInterface current = root;
+	    Stack<Node> temp = new Stack<Node>();
+	    Node current = root;
 	    while(!temp.isEmpty() || current !=null){
 		if(current !=null){
-		    temp.push((BSTNodeInterface) current);
+		    temp.push((Node) current);
 		    current = current.getLeftChild();
 		}else{
-		    BSTNodeInterface tempNode = temp.pop();
-		    ArrayList<String> subjectList = tempNode.getAllSubjects();
+		    Node tempNode = temp.pop();
+		    ArrayList<String> courseList = tempNode.getAllCourses();
 		    output += tempNode.getNodeIndex()+": ";
-		    if(!subjectList.isEmpty()){
-			for(int i=0;i<subjectList.size()-1;i++){
-			    output += subjectList.get(i)+", ";
+		    if(!courseList.isEmpty()){
+			for(int i=0;i<courseList.size()-1;i++){
+			    output += courseList.get(i)+", ";
 			}
-			output += subjectList.get(subjectList.size()-1);
+			output += courseList.get(courseList.size()-1);
 		    }
 		    output += "\n";    
 		}
