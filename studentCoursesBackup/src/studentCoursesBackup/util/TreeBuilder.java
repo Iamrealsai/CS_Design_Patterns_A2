@@ -38,7 +38,8 @@ public class TreeBuilder implements TreeInterface
     //--------------helper functions------------------
     
     private int getBNumber(String sIn){
-	return 
+	//assuming the format would be 1234:A(course name) always
+	return convertToInt(sIn.substring(0,4));
     }
 
     /**
