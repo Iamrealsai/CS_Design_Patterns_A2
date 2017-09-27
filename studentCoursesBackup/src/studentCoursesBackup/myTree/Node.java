@@ -128,7 +128,20 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 	return courses;
     }
 
-    
+    /**
+     *Implementation of clone()
+     *@return a Node
+     **/
+    public Node clone(){
+	Node temp = null;
+	try{
+	    temp = (Node) super.clone();
+	} catch (CloneNotSupportedException e){
+	    e.printStackTrace();
+	    System.exit(1);
+	}
+	return temp;
+    }
     
     
     //-------------------Observer Interface--------------------------
