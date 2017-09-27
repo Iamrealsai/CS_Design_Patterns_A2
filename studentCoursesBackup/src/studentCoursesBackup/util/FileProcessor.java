@@ -11,7 +11,7 @@ public class FileProcessor
     private File inputFile=null;
     private FileReader fileReader=null;
     private BufferedReader bufferedReader=null;
-    private String line;
+    // private String line;
     
     /**
      * constructor
