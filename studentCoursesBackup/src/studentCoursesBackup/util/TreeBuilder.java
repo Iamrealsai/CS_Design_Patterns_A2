@@ -2,6 +2,7 @@ package studentCoursesBackup.util;
 
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
+import studentCoursesBackup.util.FileProcessor;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -10,14 +11,28 @@ public class TreeBuilder implements TreeInterface
     private Node masterRoot;//root node for main tree
     private Node backupRoot1;//root node for backup tree 1
     private Node backupRoot2;//root node for backup tree 2
+    private FileProcessor inputFile;//input file
+    private FileProcessor deleteFile;//file with deleted courses
+    private String line; //line read at each iteration from file
 
     /**
      *Constructor
      **/
-    public TreeBuilder(){
+    public TreeBuilder(String inputFileName, String deleteFileName){
+	//---------initialization of nodes----------
 	masterRoot = null;
 	backupRoot1 = masterRoot.clone();
 	backupRoot2 = masterRoot.clone();
+	//------------------------------------------
+	inputFile = new FileProcessor(inputFileName);
+	deleteFile = new FileProcessor(deleteFile);
+	//-----------------------------------------
+	line = inputFile.readLine();
+	while(line!=null){
+
+	}
+	
+	
     }
 
     
