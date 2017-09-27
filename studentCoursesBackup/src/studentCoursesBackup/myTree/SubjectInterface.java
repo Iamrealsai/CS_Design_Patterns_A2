@@ -2,8 +2,8 @@ package studentCoursesBackup.myTree;
 
 public interface SubjectInterface
 {
-    public void registerObserver(ObserverInterface oIn);
-    public void removeObserver(ObserverInterface oIn);
-    public void notifyAll(String sIn);
+ void registerObserver(ObserverInterface oIn);
+ void removeObserver(ObserverInterface oIn);
+ void notifyAll(String sIn);
 }
 
