@@ -16,8 +16,8 @@ public class TreeBuilder implements TreeInterface
      **/
     public TreeBuilder(){
 	masterRoot = null;
-	backupRoot1 = null;
-	backupRoot2 = null;
+	backupRoot1 = masterRoot.clone();
+	backupRoot2 = masterRoot.clone();
     }
 
     
