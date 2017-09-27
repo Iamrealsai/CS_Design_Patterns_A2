@@ -1,11 +1,9 @@
 package studentCoursesBackup.myTree;
 
-import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
-
 public interface SubjectInterface
 {
-    public void registerObserver(BSTNodeInterface o);
-    public void removeObserver(BSTNodeInterface o);
-    public void notifyAll(int operationIndex, String sIn);
+    public void registerObserver(ObserverInterface oIn);
+    public void removeObserver(ObserverInterface oIn);
+    public void notifyAll(String sIn);
 }
 

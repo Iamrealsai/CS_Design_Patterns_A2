@@ -135,7 +135,7 @@ public class Node implements SubjectInterface, ObserverInterface
      *@param operationindex the int flag to decide to delete(2) or insert(1)
      *@param sIn, the subject name to be inserted or deleted
      **/
-    public void update(ObserverInterface oIn/*, int operationIndex*/, String sIn){
+    public void update(ObserverInterface oIn, String sIn){
 	Node temp = (Node) oIn ;
 	/*if(operationIndex==1){
 	    temp.insertCourse(sIn);
@@ -171,13 +171,13 @@ public class Node implements SubjectInterface, ObserverInterface
      *@param operationIndex - 1 for insertion, 2 for deletion
      *@param sIn, the course name to be inserted or deleted
      **/
-    public void notifyAll(int operationIndex,String sIn){
+    public void notifyAll(String sIn){
 	if(!observers.isEmpty()){
 	    for(ObserverInterface temp : observers){
 		update(temp,operationIndex,sIn);
 	    }
 	}
-	this.setLastOperation(0);//resets index flag
+	//this.setLastOperation(0);//resets index flag
     }
     
 

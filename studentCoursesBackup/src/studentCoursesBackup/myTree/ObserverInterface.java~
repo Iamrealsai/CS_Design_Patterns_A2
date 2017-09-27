@@ -1,6 +1,0 @@
-package studentCoursesBackup.myTree;
-
-public interface ObserverInterface
-{
-    public void update();
-}
