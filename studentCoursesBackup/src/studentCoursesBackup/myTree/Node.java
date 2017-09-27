@@ -1,17 +1,16 @@
 package studentCoursesBackup.myTree;
 
 import java.util.ArrayList;
-import studentCoursesBackup.binarySearchTree.BSTNodeInterface;
 import studentCoursesBackup.myTree.SubjectInterface;
 import studentCoursesBackup.myTree.ObserverInterface;
 
-public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterface
+public class Node implements SubjectInterface, ObserverInterface
 {
     private int bNumber; //unique ID
-    private ArrayList<String> subjects;//subject list
-    private ArrayList<BSTNodeInterface> observers;//for observers
-    private BSTNodeInterface leftChild; // left child
-    private BSTNodeInterface rightChild;//right child
+    private ArrayList<String> courses;//course list
+    private ArrayList<ObserverInterface> observers;//for observers
+    private Node leftChild; // left child
+    private Node rightChild;//right child
     private int operationIndex; // 1 if insert, 2 if delete
 
     /**
@@ -19,7 +18,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      **/
     public Node(){
 	subjects = new ArrayList<String>();
-	observers = new ArrayList<BSTNodeInterface>();
+	observers = new ArrayList<Node>();
 	leftChild = null;
 	rightChild = null;
 	operationIndex = 0;	
@@ -32,7 +31,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
     public Node(int bNumberIn){
 	bNumber = bNumberIn;
 	subjects = new ArrayList<String>();
-	observers = new ArrayList<BSTNodeInterface>();
+	observers = new ArrayList<Node>();
 	leftChild = null;
 	rightChild = null;
 	operationIndex = 0;
@@ -54,7 +53,6 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
 	operationIndex = iIn;
     }
 
-    //---------------BSTnodeinterface------------------------
     /**
      *gets the index of the node
      *@return the index(BNumber)
@@ -67,7 +65,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *gets the right child of the node
      *@return the right child
      **/
-    public BSTNodeInterface getRightChild(){
+    public Node getRightChild(){
 	return this.rightChild;
     }
 
@@ -75,7 +73,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *setter for right child
      *@param nodeIn, the node to be added
      **/
-    public void setRightChild(BSTNodeInterface nodeIn){
+    public void setRightChild(Node nodeIn){
 	rightChild = nodeIn;
     }
 
@@ -83,7 +81,7 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *get method for left child
      *@return the left child
      **/
-    public BSTNodeInterface getLeftChild(){
+    public Node getLeftChild(){
 	return this.leftChild;
     }
 
@@ -91,15 +89,15 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
      *sets left child
      *@param nodeIn, the left child node
      **/
-    public void setLeftChild(BSTNodeInterface nodeIn){
+    public void setLeftChild(Node nodeIn){
 	leftChild = nodeIn;
     }
 
     /**
-     *inserts subject for a specific node
-     *@param the subject to be inserted
+     *inserts Course for a specific node
+     *@param the course to be inserted
      **/
-    public void insertSubject(String sIn){
+    public void insertCourse(String sIn){
 	if(!subjects.contains(sIn)){
 	    subjects.add(sIn);
 	    // this.setLastOperation(1);// 1 for insertion
@@ -109,10 +107,10 @@ public class Node implements BSTNodeInterface, SubjectInterface, ObserverInterfa
     }
 
     /**
-     *deletes a subject from a specific node
-     *@param the subject to be deleted
+     *deletes a course from a specific node
+     *@param the course to be deleted
      **/
-    public void deleteSubject(String sIn){
+    public void deleteCourse(String sIn){
 	if(subjects.contains(sIn)){
 	    subjects.remove(subjects.indexOf(sIn));
 	    // this.setLastOperation(2);//2 for deletion
