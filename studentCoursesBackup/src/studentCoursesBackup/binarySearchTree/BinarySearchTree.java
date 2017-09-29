@@ -3,7 +3,7 @@ package studentCoursesBackup.binarySearchTree;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 import studentCoursesBackup.myTree.Node;
 import java.util.ArrayList;
-import java.util.stack;
+import java.util.Stack;
 
 public class BinarySearchTree implements TreeInterface
 {
@@ -31,4 +31,7 @@ public class BinarySearchTree implements TreeInterface
     public Node getRootNode(){
 	return root;
     }
+
+    //------------TreeInterface mthods----------------
+    
 }
