@@ -42,11 +42,19 @@ public class TreeBuilder
 	    Node temp = masterTree.find(nodeIndex);
 	    if(temp==null){
 		Node masterNode = new Node(nodeIndex);
+		Node backupNode1=null;
+		Node backupNode2=null;
 		if(masterNode instanceof Cloneable){
-		    Node backupNode1 = masterNode.clone();
-		    Node backupNode2 = masterNode.clone();
+		    backupNode1 = masterNode.clone();
+		    backupNode2 = masterNode.clone();
 		}
+		masterTree.insertNode(masterNode);
+		backupTree1.insertNode(backupNode1);
+		backupTree2.insertNode(backupNode2);
+	    }else{
+		
 	    }
+	    
 	    
 	    // add afunction from tree interface to see-> checkNodeExistence(root,index)
 	    //aftethat populate make nodes and populate
@@ -92,10 +100,10 @@ public class TreeBuilder
      *@param sIn the course module to be entered
      *@return the String name of course if valid, or "" if not
      **/
-    private char registerForCourse(String sIn){
+    private String registerForCourse(String sIn){
 	//assuming there are no formatting issues with input text file
-	char temp = sIn.charAt(sIn.length()-1);
-	return temp;
+	return String.valueOf(sIn.charAt(sIn.length()-1));
+	//return temp;
 	/*String compareStr = "ABCDEFGHIJK";
 	for(int i=0;i<compareStr.length();i++){
 	    if(temp==compareStr.charAt(i)){
