@@ -28,14 +28,18 @@ public class TreeBuilder
 	//------------------------------------------
 	inputFile = new FileProcessor(inputFileName);
 	deleteFile = new FileProcessor(deleteFileName);
-	//-----------------------------------------
+	//----------insert operation----------------
 	line = inputFile.readLine();
 	while(line!=null){
 	    int tempIndex = getBNumber(line);
 	    populateTrees(tempIndex);
 	    line = inputFile.readLine();
 	}
-	//----------------------------------------
+	line ="";
+	//----------delete operation----------------
+
+
+	//-----------------------------------------
 	inputFile.closeAll();
 	//----------------------------------------
     }
