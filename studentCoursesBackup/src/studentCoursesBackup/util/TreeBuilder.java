@@ -39,9 +39,12 @@ public class TreeBuilder
 	line = inputFile.readLine();
 	while(line!=null){
 	    int nodeIndex = getBNumber(line);
-	    Node temp = masterTree.find(nodeIndex);
-	    if(temp==null){
+	    Node nodeFromMaster = masterTree.find(nodeIndex);
+	    if(nodeFromMaster==null){
+		//--------------------------------
 		Node masterNode = new Node(nodeIndex);
+		masterNode.insertCourse(findCourse(line));
+		//--------------------------------
 		Node backupNode1=null;
 		Node backupNode2=null;
 		if(masterNode instanceof Cloneable){
@@ -52,7 +55,14 @@ public class TreeBuilder
 		backupTree1.insertNode(backupNode1);
 		backupTree2.insertNode(backupNode2);
 	    }else{
-		
+		String tempCourse = findCourse(line);
+	        nodeFromMaster.insertCourse(tempCourse);
+		//-------------------------------
+		Node backupNodes = backupTree1.find(nodeIndex);
+		backupNodes.insertCourse(tempCourse);
+		//-------------------------------
+		backupNodes = backupTree2.find(nodeIndex);
+		backupNodes.insertCourse(tempCourse);
 	    }
 	    
 	    
@@ -100,7 +110,7 @@ public class TreeBuilder
      *@param sIn the course module to be entered
      *@return the String name of course if valid, or "" if not
      **/
-    private String registerForCourse(String sIn){
+    private String findCourse(String sIn){
 	//assuming there are no formatting issues with input text file
 	return String.valueOf(sIn.charAt(sIn.length()-1));
 	//return temp;
