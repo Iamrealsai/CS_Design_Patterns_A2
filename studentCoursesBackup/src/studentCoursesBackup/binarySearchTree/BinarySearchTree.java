@@ -32,8 +32,9 @@ public class BinarySearchTree implements TreeInterface
 	return root;
     }
 
-    //------------TreeInterface mthods----------------
- /**
+    //------------TreeInterface methods----------------
+
+    /**
      *gets the Node for a specific BNumber in a specific tree
      *@param index, the unique index(BNumber) to search for
      *@return the Node that complies with the index in a specific tree
@@ -54,13 +55,12 @@ public class BinarySearchTree implements TreeInterface
     }
 
     /**
-     *inserts a new node with a specific into a given tree
+     *inserts a cloned node with a specific into a given tree
      *@param root, the root node for the required tree
      *@param index, the unique BNumber of student
      **/
-    public void insertNode(Node root,int index){
-	if(find(root,index)==null){
-	    Node newNode = new Node(index);
+    public void insertNode(Node newNode,int index){
+	if(find(index)!=null){
 	    if(root == null){
 		root = newNode;
 	    }else{
@@ -88,10 +88,9 @@ public class BinarySearchTree implements TreeInterface
 
     /**
      *returns a string of all nodes in acsending order
-     *@param root, the root of the tree to be traversed
      *@return the string output of traversal
      **/
-    public String printNodes(Node root){
+    public String printNodes(){
 	String output="";
 	try{
 	    if(root == null){

@@ -6,6 +6,6 @@ public interface TreeInterface
 {
     Node find(int index);
     // public BSTNodeInterface getRootNode();
-    void insertNode(Node root,int index);
-    String printNodes(Node root);
+    void insertNode(Node newNode,int index);
+    String printNodes();
 }
