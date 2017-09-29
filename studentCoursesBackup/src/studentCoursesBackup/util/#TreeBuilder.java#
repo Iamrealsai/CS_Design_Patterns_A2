@@ -46,6 +46,7 @@ public class TreeBuilder
 		    Node backupNode1 = masterNode.clone();
 		    Node backupNode2 = masterNode.clone();
 		}
+		masterTree.insertNode()
 	    }
 	    
 	    // add afunction from tree interface to see-> checkNodeExistence(root,index)

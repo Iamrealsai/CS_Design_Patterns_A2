@@ -55,12 +55,12 @@ public class BinarySearchTree implements TreeInterface
     }
 
     /**
-     *inserts a cloned node with a specific into a given tree
-     *@param root, the root node for the required tree
-     *@param index, the unique BNumber of student
+     *inserts a created node with a specific index into a given tree
+     *@param newNode, the root node for the required tree
      **/
-    public void insertNode(Node newNode,int index){
-	if(find(index)!=null){
+    public void insertNode(Node newNode){
+	int index = newNode.getNodeIndex();
+	if(find(index)==null){
 	    if(root == null){
 		root = newNode;
 	    }else{
