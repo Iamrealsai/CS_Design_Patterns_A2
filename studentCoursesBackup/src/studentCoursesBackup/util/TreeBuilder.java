@@ -9,10 +9,7 @@ import java.util.Stack;
 
 public class TreeBuilder
 {
-    //private Node masterRoot;//root node for main tree
-    //private Node backupRoot1;//root node for backup tree 1
-    // private Node backupRoot2;//root node for backup tree 2
-    
+   
     private TreeInterface masterTree;// main tree
     private TreeInterface backupTree1;// backup tree 1
     private TreeInterface backupTree2;// backup tree 2
@@ -24,11 +21,7 @@ public class TreeBuilder
      *Constructor
      **/
     public TreeBuilder(String inputFileName, String deleteFileName){
-	//---------initialization of nodes----------
-	//	masterRoot = null;
-	//	backupRoot1 = masterRoot.clone();
-	//	backupRoot2 = masterRoot.clone();
-
+	//---------initialization of trees----------
 	masterTree = new BinarySearchTree();
 	backupTree1 = new BinarySearchTree();
 	backupTree2 = new BinarySearchTree();
@@ -38,46 +31,13 @@ public class TreeBuilder
 	//-----------------------------------------
 	line = inputFile.readLine();
 	while(line!=null){
-	    int nodeIndex = getBNumber(line);
-	    Node nodeFromMaster = masterTree.find(nodeIndex);
-	    if(nodeFromMaster==null){
-		//--------------------------------
-		Node masterNode = new Node(nodeIndex);
-		masterNode.insertCourse(findCourse(line));
-		//--------------------------------
-		Node backupNode1=null;
-		Node backupNode2=null;
-		if(masterNode instanceof Cloneable){
-		    backupNode1 = masterNode.clone();
-		    backupNode2 = masterNode.clone();
-		}
-		masterTree.insertNode(masterNode);
-		backupTree1.insertNode(backupNode1);
-		backupTree2.insertNode(backupNode2);
-	    }else{
-		String tempCourse = findCourse(line);
-	        nodeFromMaster.insertCourse(tempCourse);
-		//-------------------------------
-		Node backupNodes = backupTree1.find(nodeIndex);
-		backupNodes.insertCourse(tempCourse);
-		//-------------------------------
-		backupNodes = backupTree2.find(nodeIndex);
-		backupNodes.insertCourse(tempCourse);
-	    }
-	    
-	    
-	    // add afunction from tree interface to see-> checkNodeExistence(root,index)
-	    //aftethat populate make nodes and populate
-	    //else just populate subjects only
-	    
-	    //change so that there are three seperate trees
-	    //for insert node, insert the node after clone 
-	    //-> insertNode(NewNode){}-> insert cant create a new node
-	    //that part should be done by clone
-	    
+	    int tempIndex = getBNumber(line);
+	    populateTrees(tempIndex);
+	    line = inputFile.readLine();
 	}
-	
-	
+	//----------------------------------------
+	inputFile.closeAll();
+	//----------------------------------------
     }
 
     //--------------helper functions------------------
@@ -113,14 +73,38 @@ public class TreeBuilder
     private String findCourse(String sIn){
 	//assuming there are no formatting issues with input text file
 	return String.valueOf(sIn.charAt(sIn.length()-1));
-	//return temp;
-	/*String compareStr = "ABCDEFGHIJK";
-	for(int i=0;i<compareStr.length();i++){
-	    if(temp==compareStr.charAt(i)){
-		return temp;
-	    }
-	}
-	return null;*/
     }
 
-   }
+    /**
+     *function to populate the three trees, clones nodes if necessary
+     *@param the unique BNumber for the required node
+     **/
+    private void populateTrees(int nodeIndex){
+	Node nodeFromMaster = masterTree.find(nodeIndex);
+	if(nodeFromMaster==null){
+	    //--------------------------------
+	    Node masterNode = new Node(nodeIndex);
+	    masterNode.insertCourse(findCourse(line));
+	    //--------------------------------
+	    Node backupNode1=null;
+	    Node backupNode2=null;
+	    if(masterNode instanceof Cloneable){
+		backupNode1 = masterNode.clone();
+		backupNode2 = masterNode.clone();
+	    }
+	    masterTree.insertNode(masterNode);
+	    backupTree1.insertNode(backupNode1);
+	    backupTree2.insertNode(backupNode2);
+	}else{
+	    String tempCourse = findCourse(line);
+	    nodeFromMaster.insertCourse(tempCourse);
+	    //-------------------------------
+	    Node backupNodes = backupTree1.find(nodeIndex);
+	    backupNodes.insertCourse(tempCourse);
+	    //-------------------------------
+	    backupNodes = backupTree2.find(nodeIndex);
+	    backupNodes.insertCourse(tempCourse);
+	}	    
+    } 
+
+}
