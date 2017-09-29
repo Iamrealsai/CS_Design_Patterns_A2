@@ -14,10 +14,15 @@ public class Driver
 	
 	System.out.println("Hello World: " + args[0] + ", " + args[1] + ", " + args[2]+", "+args[3]+", "+args[4]);
 
-	TreeBuilder myTreeBuilder = new TreeBuilder(args[0],args[1]);
-	Results output1 = new Results(args[2]);//main tree
-	Results output2 = new Results(args[3]);//backup tree 1
-	Results output3 = new Results(args[4]);//backup tree 2
+	String s1="src/input.txt";
+	String s2="src/delete.txt";
+	String s3="src/o1.txt";
+	String s4="src/o2.txt";
+	String s5="arc/o3.txt";
+	TreeBuilder myTreeBuilder = new TreeBuilder(s1,s2);
+	Results output1 = new Results(s3);//main tree
+	Results output2 = new Results(s4);//backup tree 1
+	Results output3 = new Results(s5);//backup tree 2
 
 	//---------------for master tree-------------------
 	output1.storeNewResult(myTreeBuilder.getTree(0).printNodes());
