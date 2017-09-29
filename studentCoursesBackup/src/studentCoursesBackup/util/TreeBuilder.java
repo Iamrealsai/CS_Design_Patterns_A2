@@ -34,6 +34,10 @@ public class TreeBuilder implements TreeInterface
 	    //aftethat populate make nodes and populate
 	    //else just populate subjects only
 	    
+	    //change so that there are three seperate trees
+	    //for insert node, insert the node after clone 
+	    //-> insertNode(NewNode){}-> insert cant create a new node
+	    //that part should be done by clone
 	    
 	}
 	
