@@ -43,6 +43,7 @@ public class TreeBuilder
 	}
 	//-----------------------------------------
 	inputFile.closeAll();
+	deleteFile.closeAll();
 	//----------------------------------------
     }
 
