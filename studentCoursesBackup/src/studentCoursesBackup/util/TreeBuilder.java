@@ -120,6 +120,10 @@ public class TreeBuilder
 	}	    
     }
 
+    /**
+     *function to trim course lists of nodes of trees
+     *@param the index of the node of the master tree
+     **/
     private void trimTrees(int nodeIndex){
 	Node nodeFromMaster = masterTree.find(nodeIndex);
 	if(nodeFromMaster!=null){
