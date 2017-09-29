@@ -2,6 +2,8 @@ package studentCoursesBackup.util;
 
 import studentCoursesBackup.myTree.Node;
 import studentCoursesBackup.util.FileProcessor;
+import studentCoursesBackup.binarySearchTree.BinarySearchTree;
+import studentCoursesBackup.binarySearchTree.TreeInterface;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -10,6 +12,10 @@ public class TreeBuilder
     //private Node masterRoot;//root node for main tree
     //private Node backupRoot1;//root node for backup tree 1
     // private Node backupRoot2;//root node for backup tree 2
+    
+    private TreeInterface masterTree;// main tree
+    private TreeInterface backupTree1;// backup tree 1
+    private TreeInterface backupTree2;// backup tree 2
     private FileProcessor inputFile;//input file
     private FileProcessor deleteFile;//file with deleted courses
     private String line; //line read at each iteration from file
@@ -22,13 +28,17 @@ public class TreeBuilder
 	//	masterRoot = null;
 	//	backupRoot1 = masterRoot.clone();
 	//	backupRoot2 = masterRoot.clone();
+
+	masterTree = new BinarySearchTree();
+	backupTree1 = new BinarySearchTree();
+	backupTree2 = new BinarySearchTree();
 	//------------------------------------------
 	inputFile = new FileProcessor(inputFileName);
 	deleteFile = new FileProcessor(deleteFileName);
 	//-----------------------------------------
 	line = inputFile.readLine();
 	while(line!=null){
-	    temp nodeIndex = getBNumber(line);
+	    int nodeIndex = getBNumber(line);
 	    // add afunction from tree interface to see-> checkNodeExistence(root,index)
 	    //aftethat populate make nodes and populate
 	    //else just populate subjects only
@@ -73,16 +83,17 @@ public class TreeBuilder
      *@param sIn the course module to be entered
      *@return the String name of course if valid, or "" if not
      **/
-    private String registerForCourse(String sIn){
+    private char registerForCourse(String sIn){
 	//assuming there are no formatting issues with input text file
-	Char temp = sIn.charAt(sIn.length()-1);
-	String compareStr = "ABCDEFGHIJK";
+	char temp = sIn.charAt(sIn.length()-1);
+	return temp;
+	/*String compareStr = "ABCDEFGHIJK";
 	for(int i=0;i<compareStr.length();i++){
 	    if(temp==compareStr.charAt(i)){
-		return (String) temp;
+		return temp;
 	    }
 	}
-	return "";
+	return null;*/
     }
 
    }
