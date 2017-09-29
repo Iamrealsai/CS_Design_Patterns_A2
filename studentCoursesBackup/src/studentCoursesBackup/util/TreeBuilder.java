@@ -47,6 +47,22 @@ public class TreeBuilder
 	//----------------------------------------
     }
 
+    /**
+     *get function for specific tree
+     *@param the flag for tree type, if 0 - main tree, 1-backup 1,2 - backup 2
+     **/
+    public TreeInterface getTree(int flag){
+	TreeInterface tempTree = new BinarySearchTree();
+	if(flag==0){
+	    tempTree = masterTree;
+	}else if(flag==1){
+	    tempTree = backupTree1;
+	}else if(flag==2){
+	    tempTree = backupTree2;
+	}
+	return tempTree;
+    }
+    
     //--------------helper functions------------------
 
     /**
