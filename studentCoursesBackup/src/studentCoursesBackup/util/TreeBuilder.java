@@ -1,6 +1,9 @@
 package studentCoursesBackup.util;
 
 import studentCoursesBackup.myTree.Node;
+import studentCoursesBackup.myTree.SubjectInterface;
+import studentCoursesBackup.myTree.ObserverInterface;
+import studentCoursesBackup.cloneable.Cloneable;
 import studentCoursesBackup.util.FileProcessor;
 import studentCoursesBackup.binarySearchTree.BinarySearchTree;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
@@ -32,13 +35,17 @@ public class TreeBuilder
 	line = inputFile.readLine();
 	while(line!=null){
 	    int tempIndex = getBNumber(line);
-	    populateTrees(tempIndex);
+	    populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
 	    line = inputFile.readLine();
 	}
 	line ="";
 	//----------delete operation----------------
-
-
+	line = deleteFile.readLine();
+	while(line!=null){
+	    int tempIndex = getBNumber(line);
+	    trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
+	    line = deleteFile.readLine();
+	}
 	//-----------------------------------------
 	inputFile.closeAll();
 	//----------------------------------------
@@ -84,17 +91,19 @@ public class TreeBuilder
      *@param the unique BNumber for the required node
      **/
     private void populateTrees(int nodeIndex){
-	Node nodeFromMaster = masterTree.find(nodeIndex);
+        Node nodeFromMaster = masterTree.find(nodeIndex);
 	if(nodeFromMaster==null){
 	    //--------------------------------
-	    Node masterNode = new Node(nodeIndex);
+	    Node  masterNode = new Node(nodeIndex);
 	    masterNode.insertCourse(findCourse(line));
 	    //--------------------------------
-	    Node backupNode1=null;
-	    Node backupNode2=null;
+	    Node backupNode1= new Node();
+	    Node backupNode2= new Node();
 	    if(masterNode instanceof Cloneable){
 		backupNode1 = masterNode.clone();
 		backupNode2 = masterNode.clone();
+		masterNode.registerObserver(backupNode1);
+		masterNode.registerObserver(backupNode2);
 	    }
 	    masterTree.insertNode(masterNode);
 	    backupTree1.insertNode(backupNode1);
@@ -109,6 +118,16 @@ public class TreeBuilder
 	    backupNodes = backupTree2.find(nodeIndex);
 	    backupNodes.insertCourse(tempCourse);
 	}	    
-    } 
+    }
+
+    private void trimTrees(int nodeIndex){
+	Node nodeFromMaster = masterTree.find(nodeIndex);
+	if(nodeFromMaster!=null){
+	    String courseToDelete = findCourse(line);
+	    nodeFromMaster.deleteCourse(courseToDelete);
+	    nodeFromMaster.notifyAll(courseToDelete);
+	    // nodeFromMaster.
+	}
+    }
 
 }
