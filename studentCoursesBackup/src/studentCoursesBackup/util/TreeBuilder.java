@@ -39,6 +39,10 @@ public class TreeBuilder
 	line = inputFile.readLine();
 	while(line!=null){
 	    int nodeIndex = getBNumber(line);
+	    Node temp = masterTree.find(nodeIndex);
+	    if(temp==null){
+		
+	    }
 	    // add afunction from tree interface to see-> checkNodeExistence(root,index)
 	    //aftethat populate make nodes and populate
 	    //else just populate subjects only
