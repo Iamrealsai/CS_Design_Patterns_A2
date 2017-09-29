@@ -1,14 +1,9 @@
 package studentCoursesBackup.util;
 
 import studentCoursesBackup.myTree.Node;
-import studentCoursesBackup.myTree.SubjectInterface;
-import studentCoursesBackup.myTree.ObserverInterface;
-import studentCoursesBackup.cloneable.Cloneable;
 import studentCoursesBackup.util.FileProcessor;
 import studentCoursesBackup.binarySearchTree.BinarySearchTree;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
-import java.util.ArrayList;
-import java.util.Stack;
 
 public class TreeBuilder
 {
