@@ -41,6 +41,9 @@ public class BinarySearchTree implements TreeInterface
      **/
     public Node find(int index){
 	Node current = root;
+	if(root==null){
+		return null;
+	}
 	while(current.getNodeIndex()!=index){
 	    if(index<current.getNodeIndex()){
 		current = current.getLeftChild();
@@ -113,6 +116,7 @@ public class BinarySearchTree implements TreeInterface
 			output += courseList.get(courseList.size()-1);
 		    }
 		    output += "\n";    
+		    current = tempNode.getRightChild();
 		}
 	    }
 	}catch(RuntimeException e){
