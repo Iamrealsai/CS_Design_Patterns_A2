@@ -101,37 +101,54 @@ public class TreeBuilder
     }
 
     /**
+     *finds if a course given is valid
+     *@param the course title
+     *@return true if course is valid
+     **/
+    private boolean isCourseValid(String sIn){
+	String list = "ABCDEFGHIJK";
+	for(int i=0;i<list.length;i++){
+	    String temp = String.valueOf(list.charAt[i]);
+	    if(temp==sIn){
+		return true;
+	    }
+	}
+	return false;
+    }
+    
+    /**
      *function to populate the three trees, clones nodes if necessary
      *@param the unique BNumber for the required node
      **/
     private void populateTrees(int nodeIndex){
         Node nodeFromMaster = masterTree.find(nodeIndex);
-	if(nodeFromMaster==null){
-	    //--------------------------------
-	    Node  masterNode = new Node(nodeIndex);
-	    masterNode.insertCourse(findCourse(line));
-	    //--------------------------------
-	    Node backupNode1=null;
-	    Node backupNode2=null;
-	    if(masterNode instanceof Cloneable){
-		backupNode1 = (Node) masterNode.clone();
-		backupNode2 = (Node) masterNode.clone();
-		masterNode.registerObserver(backupNode1);
-		masterNode.registerObserver(backupNode2);
-	    }
-	    masterTree.insertNode(masterNode);
-	    backupTree1.insertNode(backupNode1);
-	    backupTree2.insertNode(backupNode2);
-	}else{
-	    String tempCourse = findCourse(line);
-	    nodeFromMaster.insertCourse(tempCourse);
-	    //-------------------------------
-	    Node backupNodes = backupTree1.find(nodeIndex);
-	    backupNodes.insertCourse(tempCourse);
-	    //-------------------------------
-	    backupNodes = backupTree2.find(nodeIndex);
-	    backupNodes.insertCourse(tempCourse);
-
+	String tempCourse = findCourse(line);
+	if(isCourseValid(tempCourse)){
+	    if(nodeFromMaster==null){
+		//--------------------------------
+		Node  masterNode = new Node(nodeIndex);
+		masterNode.insertCourse(tempCourse);
+		//--------------------------------
+		Node backupNode1=null;
+		Node backupNode2=null;
+		if(masterNode instanceof Cloneable){
+		    backupNode1 = (Node) masterNode.clone();
+		    backupNode2 = (Node) masterNode.clone();
+		    masterNode.registerObserver(backupNode1);
+		    masterNode.registerObserver(backupNode2);
+		}
+		masterTree.insertNode(masterNode);
+		backupTree1.insertNode(backupNode1);
+		backupTree2.insertNode(backupNode2);
+	    }else{
+		nodeFromMaster.insertCourse(tempCourse);
+		//-------------------------------
+		Node backupNodes = backupTree1.find(nodeIndex);
+		backupNodes.insertCourse(tempCourse);
+		//-------------------------------
+		backupNodes = backupTree2.find(nodeIndex);
+		backupNodes.insertCourse(tempCourse);
+	    }   
 	}	    
     }
 
