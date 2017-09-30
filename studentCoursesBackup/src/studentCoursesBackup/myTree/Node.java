@@ -132,7 +132,7 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
      *Implementation of clone()
      *@return a Node
      **/
-    public Node clone(){
+    public Node getClone(){
 	Node temp = null;
 	try{
 	    temp = (Node) super.clone();

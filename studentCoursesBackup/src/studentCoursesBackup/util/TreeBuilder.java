@@ -113,9 +113,9 @@ public class TreeBuilder
 	    Node backupNode1= new Node();
 	    Node backupNode2= new Node();
 	    if(masterNode instanceof Cloneable){
-	    	//System.out.println("Cloneable interface test passed");//------------------------------------------------------------
-		backupNode1 = (Node) masterNode.clone();
-		backupNode2 = (Node) masterNode.clone();
+	    	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
+		backupNode1 = (Node) masterNode.getClone();
+		backupNode2 = (Node) masterNode.getClone();
 		masterNode.registerObserver(backupNode1);
 		masterNode.registerObserver(backupNode2);
 	    }
