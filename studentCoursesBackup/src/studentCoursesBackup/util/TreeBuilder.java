@@ -110,8 +110,8 @@ public class TreeBuilder
 	    Node  masterNode = new Node(nodeIndex);
 	    masterNode.insertCourse(findCourse(line));
 	    //--------------------------------
-	    Node backupNode1= new Node();
-	    Node backupNode2= new Node();
+	    Node backupNode1=null;//= new Node();
+	    Node backupNode2=null;//= new Node();
 	    if(masterNode instanceof Cloneable){
 	    	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
 		backupNode1 = masterNode.clone();
