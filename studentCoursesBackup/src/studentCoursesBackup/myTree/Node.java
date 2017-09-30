@@ -11,16 +11,6 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
     private ArrayList<ObserverInterface> observers;//for observers
     private Node leftChild; // left child
     private Node rightChild;//right child
-
-    /**
-     *Empty Constructor for initial root nodes
-     **//*
-    public Node(){
-	courses = new ArrayList<String>();
-	observers = new ArrayList<ObserverInterface>();
-	leftChild = null;
-	rightChild = null;
-    }*/
     
     /**
      *Constructor for specific node
