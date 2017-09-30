@@ -28,25 +28,35 @@ public class TreeBuilder
 	//------------------------------------------
 	inputFile = new FileProcessor(inputFileName);
 	deleteFile = new FileProcessor(deleteFileName);
-	//----------insert operation----------------
-	line = inputFile.readLine();
-	while(line!=null){
-	    int tempIndex = getBNumber(line);
-	    populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
+	try{
+	    //----------insert operation----------------
 	    line = inputFile.readLine();
-	}
-	line ="";
-	//----------delete operation----------------
-	line = deleteFile.readLine();
-	while(line!=null){
-	    int tempIndex = getBNumber(line);
-	    trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
+	    while(line!=null){
+		if(!isFormatValid(line)){
+		    throw new RuntimeException("invalid line format in input.txt");
+		}
+		int tempIndex = getBNumber(line);
+		populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
+		line = inputFile.readLine();
+	    }
+	    line ="";
+	    //----------delete operation----------------
 	    line = deleteFile.readLine();
+	    while(line!=null){
+		if(!isFormatValid(line)){
+		    throw new RuntimeException("invalid line format in delete.txt");
+		}
+		int tempIndex = getBNumber(line);
+		trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
+		line = deleteFile.readLine();
+	    }
+	}catch(RuntimeException e){
+	    e.printStackTrace();
+	    System.exit(0);
+	}finally{
+	    inputFile.closeAll();
+	    deleteFile.closeAll();	    
 	}
-	//-----------------------------------------
-	inputFile.closeAll();
-	deleteFile.closeAll();
-	//----------------------------------------
     }
 
     /**
