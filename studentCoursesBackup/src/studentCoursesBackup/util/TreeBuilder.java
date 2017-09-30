@@ -17,6 +17,8 @@ public class TreeBuilder
 
     /**
      *Constructor
+     *@param inputFileName, the string name for the input file
+     *@param deleteFileName, the string name for the delete file
      **/
     public TreeBuilder(String inputFileName, String deleteFileName){
 	//---------initialization of trees----------
@@ -104,16 +106,14 @@ public class TreeBuilder
      **/
     private void populateTrees(int nodeIndex){
         Node nodeFromMaster = masterTree.find(nodeIndex);
-        //System.out.println("p--");//---------------------------------------------------------------------------------------------
 	if(nodeFromMaster==null){
 	    //--------------------------------
 	    Node  masterNode = new Node(nodeIndex);
 	    masterNode.insertCourse(findCourse(line));
 	    //--------------------------------
-	    Node backupNode1=null;//= new Node();
-	    Node backupNode2=null;//= new Node();
+	    Node backupNode1=null;
+	    Node backupNode2=null;
 	    if(masterNode instanceof Cloneable){
-	    //	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
 		backupNode1 = (Node) masterNode.clone();
 		backupNode2 = (Node) masterNode.clone();
 		masterNode.registerObserver(backupNode1);
@@ -122,7 +122,6 @@ public class TreeBuilder
 	    masterTree.insertNode(masterNode);
 	    backupTree1.insertNode(backupNode1);
 	    backupTree2.insertNode(backupNode2);
-	    //masterTree.insertNode(masterNode);-> when stand alone it works for master node
 	}else{
 	    String tempCourse = findCourse(line);
 	    nodeFromMaster.insertCourse(tempCourse);
@@ -137,7 +136,7 @@ public class TreeBuilder
     }
 
     /**
-     *function to trim course lists of nodes of trees
+     *function to trim course lists of nodes in trees
      *@param the index of the node of the master tree
      **/
     private void trimTrees(int nodeIndex){
@@ -146,8 +145,6 @@ public class TreeBuilder
 	    String courseToDelete = findCourse(line);
 	    nodeFromMaster.deleteCourse(courseToDelete);
 	    nodeFromMaster.notifyAll(courseToDelete);
-	    // nodeFromMaster.
 	}
     }
-
 }
