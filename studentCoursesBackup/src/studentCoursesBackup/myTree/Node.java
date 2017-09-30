@@ -71,10 +71,7 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
     public void insertCourse(String sIn){
 	if(!courses.contains(sIn)){
 	    courses.add(sIn);
-	    // this.setLastOperation(1);// 1 for insertion
 	}
-	//	this.setLastOperation(1);//1 for insertion
-	//ignores existing values
     }
 
     /**
@@ -84,10 +81,7 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
     public void deleteCourse(String sIn){
 	if(courses.contains(sIn)){
 	    courses.remove(courses.indexOf(sIn));
-	    // this.setLastOperation(2);//2 for deletion
 	}
-	//	this.setLastOperation(2);//2 for deletion
-	//ignores non-existant deletions
     }
 
     /**
@@ -98,70 +92,31 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 	return courses;
     }
 
+    //------------Prototype Pattern Implementation------------------
     /**
      *Implementation of clone()
-     *@return a Node
+     *@return a cloned Object
      **/
     public Object clone(){
-	/*Node temp = null;
+	Node temp = null;
 	try{
 	    temp = (Node) super.clone();
-        temp.bNumber = this.bNumber;
-        temp.leftChild = (Node) this.leftChild.clone();
-        temp.rightChild = (Node) this.rightChild.clone();
-        temp.courses = new ArrayList<String>(this.courses);
-        temp.observers = new ArrayList<ObserverInterface>(this.observers);
 	} catch (CloneNotSupportedException e){
 	    e.printStackTrace();
 	    System.exit(1);
 	}
-    System.out.println("about to return the Clone");
-	return temp;*/
-        
-
-        /*
-        // prototype works like this
-        Node temp = new Node(this.bNumber);
-        temp.leftChild = this.leftChild;
-        temp.rightChild = this.rightChild;
-        temp.courses = new ArrayList<String>(this.courses);
-        temp.observers = new ArrayList<ObserverInterface>(this.observers);
-
-        return temp;*/
-
-    Node temp = null;
-    try{
-        temp = (Node) super.clone();
-    } catch (CloneNotSupportedException e){
-        e.printStackTrace();
-        System.exit(1);
-    }
-            /*temp.bNumber = this.bNumber;
-        temp.leftChild = (Node) this.leftChild.clone();
-        temp.rightChild = (Node) this.rightChild.clone();
-        temp.courses = new ArrayList<String>(this.courses);
-        temp.observers = new ArrayList<ObserverInterface>(this.observers);*/
-    //System.out.println("about to return the Clone");
-    return temp;
-
-    }
-    
+	return temp;
+    }    
     
     //-------------------Observer Interface--------------------------
 
     /**
      *updates observer as to delete or insert a course
-     *@param o the ObserverInterface
-     *@param operationindex the int flag to decide to delete(2) or insert(1)
+     *@param oIn the ObserverInterface
      *@param sIn, the subject name to be inserted or deleted
      **/
     public void update(ObserverInterface oIn, String sIn){
 	Node temp = (Node) oIn ;
-	/*if(operationIndex==1){
-	    temp.insertCourse(sIn);
-	}else if(operationIndex==2){
-	    temp.deleteCourse(sIn);
-	    }*/
 	temp.deleteCourse(sIn);
 	
     }
@@ -197,10 +152,5 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 		update(temp,sIn);
 	    }
 	}
-	//this.setLastOperation(0);//resets index flag
     }
-    
-
-
-    
 }
