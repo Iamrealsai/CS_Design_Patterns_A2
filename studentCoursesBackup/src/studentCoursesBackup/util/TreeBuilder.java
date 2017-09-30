@@ -117,8 +117,8 @@ public class TreeBuilder
      **/
     private boolean isCourseValid(String sIn){
 	String list = "ABCDEFGHIJK";
-	for(int i=0;i<list.length;i++){
-	    String temp = String.valueOf(list.charAt[i]);
+	for(int i=0;i<list.length();i++){
+	    String temp = String.valueOf(list.charAt(i));
 	    if(temp==sIn){
 		return true;
 	    }
@@ -132,15 +132,15 @@ public class TreeBuilder
      *@return true if format is valid
      **/
     private boolean isFormatValid(String sIn){
-	if(sIn.length != 6){
+	if(sIn.length() != 6){
 	    return false;
 	}
 	String sub = sIn.substring(0,5);
 	String list ="0123456789";
 	int count =0;
-	for(int i=0;i<sub.length;i++){
-	    for(int j=0;j<list.length;j++){
-		if(sub.charAt[i]==list.charAt[j]){
+	for(int i=0;i<sub.length();i++){
+	    for(int j=0;j<list.length();j++){
+		if(sub.charAt(i)==list.charAt(j)){
 		    count++;
 		}
 	    }
