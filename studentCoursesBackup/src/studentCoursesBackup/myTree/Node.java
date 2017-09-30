@@ -133,26 +133,27 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
      *@return a Node
      **/
     public Node getClone(){
-	Node temp = null;
+	/*Node temp = null;
 	try{
-	    /*temp = (Node) super.clone();
+	    temp = (Node) super.clone();
         temp.bNumber = this.bNumber;
         temp.leftChild = (Node) this.leftChild.clone();
         temp.rightChild = (Node) this.rightChild.clone();
         temp.courses = new ArrayList<String>(this.courses);
-        temp.observers = new ArrayList<ObserverInterface>(this.observers);*/
-        temp = new Node(this.bNumber);
-        temp.leftChild = this.leftChild;
-        temp.rightChild = this.rightChild;
-        temp.courses = new ArrayList<String>(this.courses);
         temp.observers = new ArrayList<ObserverInterface>(this.observers);
-
 	} catch (CloneNotSupportedException e){
 	    e.printStackTrace();
 	    System.exit(1);
 	}
     System.out.println("about to return the Clone");
-	return temp;
+	return temp;*/
+        Node temp = new Node(this.bNumber);
+        temp.leftChild = this.leftChild;
+        temp.rightChild = this.rightChild;
+        temp.courses = new ArrayList<String>(this.courses);
+        temp.observers = new ArrayList<ObserverInterface>(this.observers);
+
+        return temp;
     }
     
     

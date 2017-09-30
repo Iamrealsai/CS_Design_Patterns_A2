@@ -18,22 +18,22 @@ public class Driver
 	String s2="src/delete.txt";
 	String s3="src/o1.txt";
 	String s4="src/o2.txt";
-	String s5="arc/o3.txt";
+	String s5="src/o3.txt";
 	TreeBuilder myTreeBuilder = new TreeBuilder(s1,s2);
 	Results output1 = new Results(s3);//main tree
-	//Results output2 = new Results(s4);//backup tree 1
-	//Results output3 = new Results(s5);//backup tree 2
+	Results output2 = new Results(s4);//backup tree 1
+	Results output3 = new Results(s5);//backup tree 2
 
 	//---------------for master tree-------------------
 	output1.storeNewResult(myTreeBuilder.getTree(0).printNodes());
 	output1.writeToFile();
 	//output1.writeToFile(output1.getResults(output1.storeNewResult(myTreeBuilder.getTree(0).printNodes())));
 	//---------------for backup 1-----------------------
-	//output2.storeNewResult(myTreeBuilder.getTree(1).printNodes());
-	//output2.writeToFile(output2.getResults());
+	output2.storeNewResult(myTreeBuilder.getTree(1).printNodes());
+	output2.writeToFile();
 	//--------------for backup 2----------------------
-	//output3.storeNewResult(myTreeBuilder.getTree(2).printNodes());
-	//output3.writeToFile(output3.getResults());
+	output3.storeNewResult(myTreeBuilder.getTree(2).printNodes());
+	output3.writeToFile();
     }
 	
 }
