@@ -3,7 +3,7 @@ package studentCoursesBackup.myTree;
 import java.util.ArrayList;
 import studentCoursesBackup.myTree.SubjectInterface;
 import studentCoursesBackup.myTree.ObserverInterface;
-import studentCoursesBackup.cloneable.Cloneable;
+//import studentCoursesBackup.cloneable.Cloneable;
 
 public class Node implements SubjectInterface, ObserverInterface, Cloneable
 {
