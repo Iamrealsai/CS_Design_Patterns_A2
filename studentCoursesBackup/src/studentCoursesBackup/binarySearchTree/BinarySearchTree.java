@@ -75,7 +75,7 @@ public class BinarySearchTree implements TreeInterface
 
     /**
      *returns a string of all nodes in acsending order
-     *@return the string output of traversal
+     *@return the string output of inorder traversal with courses
      **/
     public String printNodes(){
 	String output="";
@@ -94,6 +94,7 @@ public class BinarySearchTree implements TreeInterface
 		    ArrayList<String> courseList = tempNode.getAllCourses();
 		    int tempNodeIndex = tempNode.getNodeIndex();
 		    String fillerText = "";
+		    //added padded zeros to maintain number format
 		    if(tempNodeIndex<10){
 		    	fillerText +="000";
 		    }else if(tempNodeIndex<100){
@@ -115,7 +116,7 @@ public class BinarySearchTree implements TreeInterface
 	}catch(RuntimeException e){
 	    e.printStackTrace();
 	    System.exit(1);
-	}
+	}finally{}
 	return output;
     }
     
