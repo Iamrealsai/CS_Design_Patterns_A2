@@ -16,7 +16,7 @@ public class BinarySearchTree implements TreeInterface
 	root = null;
     }
 
-    //------------TreeInterface methods----------------
+    //------------TreeInterface methods------------------
 
     /*
       The method implementations for BST were referenced and modified from
