@@ -145,6 +145,7 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 	    e.printStackTrace();
 	    System.exit(1);
 	}
+    System.out.println("about to return the Clone");
 	return temp;
     }
     
