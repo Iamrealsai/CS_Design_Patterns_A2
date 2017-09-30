@@ -108,7 +108,16 @@ public class BinarySearchTree implements TreeInterface
 		}else{
 		    Node tempNode = temp.pop();
 		    ArrayList<String> courseList = tempNode.getAllCourses();
-		    output += tempNode.getNodeIndex()+": ";
+		    int tempNodeIndex = tempNode.getNodeIndex();
+		    String fillerText = "";
+		    if(tempNodeIndex<10){
+		    	fillerText +="000";
+		    }else if(tempNodeIndex<100){
+		    	fillerText +="00";
+		    }else if(tempNodeIndex<1000){
+		    	fillerText += "0";
+		    }
+		    output += fillerText + tempNodeIndex +": ";
 		    if(!courseList.isEmpty()){
 			for(int i=0;i<courseList.size()-1;i++){
 			    output += courseList.get(i)+", ";
