@@ -93,7 +93,7 @@ public class TreeBuilder
     /**
      *finds the course to be registered for student
      *@param sIn the course module to be entered
-     *@return the String name of course if valid, or "" if not
+     *@return the String name of course
      **/
     private String findCourse(String sIn){
 	//assuming there are no formatting issues with input text file
@@ -115,6 +115,33 @@ public class TreeBuilder
 	}
 	return false;
     }
+
+    /**
+     *function to check if an input line is valid
+     *@param the input line 
+     *@return true if format is valid
+     **/
+    private boolean isFormatValid(String sIn){
+	if(sIn.length != 6){
+	    return false;
+	}
+	String sub = sIn.substring(0,5);
+	String list ="0123456789";
+	int count =0;
+	for(int i=0;i<sub.length;i++){
+	    for(int j=0;j<list.length;j++){
+		if(sub.charAt[i]==list.charAt[j]){
+		    count++;
+		}
+	    }
+	}
+	if(count !=4){
+	    return false;
+	}
+	return true;
+    }
+
+    //-------------------Tree functions---------------------------------
     
     /**
      *function to populate the three trees, clones nodes if necessary
