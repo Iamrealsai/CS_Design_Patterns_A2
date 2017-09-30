@@ -18,6 +18,13 @@ public class BinarySearchTree implements TreeInterface
 
     //------------TreeInterface methods----------------
 
+    /*
+      The method implementations for BST were referenced and modified from
+      the book: Data Structures & Algorithms in Java(second edition) by 
+      Robert Lafore, p406-410. The code snippets were modified as per the 
+      requirements for the Assignment.
+     */
+
     /**
      *gets the Node for a specific BNumber in a specific tree
      *@param index, the unique index(BNumber) to search for
