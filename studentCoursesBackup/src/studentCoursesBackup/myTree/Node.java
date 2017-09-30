@@ -3,7 +3,6 @@ package studentCoursesBackup.myTree;
 import java.util.ArrayList;
 import studentCoursesBackup.myTree.SubjectInterface;
 import studentCoursesBackup.myTree.ObserverInterface;
-//import studentCoursesBackup.cloneable.Cloneable;
 
 public class Node implements SubjectInterface, ObserverInterface, Cloneable
 {
@@ -12,18 +11,16 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
     private ArrayList<ObserverInterface> observers;//for observers
     private Node leftChild; // left child
     private Node rightChild;//right child
-    // private int operationIndex; // 1 if insert, 2 if delete
 
     /**
      *Empty Constructor for initial root nodes
-     **/
+     **//*
     public Node(){
 	courses = new ArrayList<String>();
 	observers = new ArrayList<ObserverInterface>();
 	leftChild = null;
 	rightChild = null;
-	//	operationIndex = 0;	
-    }
+    }*/
     
     /**
      *Constructor for specific node
