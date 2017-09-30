@@ -104,7 +104,7 @@ public class TreeBuilder
      **/
     private void populateTrees(int nodeIndex){
         Node nodeFromMaster = masterTree.find(nodeIndex);
-        System.out.println("p--");//---------------------------------------------------------------------------------------------
+        //System.out.println("p--");//---------------------------------------------------------------------------------------------
 	if(nodeFromMaster==null){
 	    //--------------------------------
 	    Node  masterNode = new Node(nodeIndex);
@@ -113,7 +113,7 @@ public class TreeBuilder
 	    Node backupNode1=null;//= new Node();
 	    Node backupNode2=null;//= new Node();
 	    if(masterNode instanceof Cloneable){
-	    	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
+	    //	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
 		backupNode1 = (Node) masterNode.clone();
 		backupNode2 = (Node) masterNode.clone();
 		masterNode.registerObserver(backupNode1);
