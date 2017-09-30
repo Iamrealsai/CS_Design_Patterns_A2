@@ -22,7 +22,7 @@ ant -buildfile src/build.xml all
 --------------------------------------------------------
 ## To run by specifying arguments from command line
 
-ant -buildfile src/build.xml run -Darg0=src/input.txt -Darg1=src/delete.txt -Darg2=src/output1.txt -Darg3=src/output2.txt -Darg4=src/output4.txt
+ant -buildfile src/build.xml run -Darg0=src/input.txt -Darg1=src/delete.txt -Darg2=src/output1.txt -Darg3=src/output2.txt -Darg4=src/output3.txt
 
 (assuming the input file is "input.txt" , the file with courses to be deleted is "delete.txt"
 and the respective output files for the three trees are output1.txt,output2.txt & output3.txt
