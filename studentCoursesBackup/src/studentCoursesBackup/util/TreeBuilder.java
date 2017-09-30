@@ -111,7 +111,7 @@ public class TreeBuilder
 	    //--------------------------------
 	    Node backupNode1= new Node();
 	    Node backupNode2= new Node();
-	   /* if(masterNode instanceof Cloneable){
+	    if(masterNode instanceof Cloneable){
 		backupNode1 = masterNode.clone();
 		backupNode2 = masterNode.clone();
 		masterNode.registerObserver(backupNode1);
@@ -119,18 +119,18 @@ public class TreeBuilder
 	    }
 	    masterTree.insertNode(masterNode);
 	    backupTree1.insertNode(backupNode1);
-	    backupTree2.insertNode(backupNode2);*/
-	    masterTree.insertNode(masterNode);
+	    backupTree2.insertNode(backupNode2);
+	    //masterTree.insertNode(masterNode);-> when stand alone it works for master node
 	}else{
 	    String tempCourse = findCourse(line);
 	    nodeFromMaster.insertCourse(tempCourse);
 	    //-------------------------------
-	    /*Node backupNodes = backupTree1.find(nodeIndex);
+	    Node backupNodes = backupTree1.find(nodeIndex);
 	    backupNodes.insertCourse(tempCourse);
 	    //-------------------------------
 	    backupNodes = backupTree2.find(nodeIndex);
-	    backupNodes.insertCourse(tempCourse);*/
-	    
+	    backupNodes.insertCourse(tempCourse);
+
 	}	    
     }
 
