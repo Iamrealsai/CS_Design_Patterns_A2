@@ -31,14 +31,13 @@ public class Results implements StdoutDisplayInterface, FileDisplayInterface
 
     /**
      *prints output to output.txt
-     *@param the string to be printed
      **/
-    public void writeToFile(String s){
+    public void writeToFile(){
 	try{
 	    fileWriter = new FileWriter(outputFileName);
 	    bufferedWriter = new BufferedWriter(fileWriter);
 	    bufferedWriter.write(this.getResults());
-	    this.writeToStdout(this.getResults());
+	    //this.writeToStdout(this.getResults());
 	}catch(IOException e){
 	    e.printStackTrace();
 	}finally{
