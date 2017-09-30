@@ -11,7 +11,7 @@ public class Driver
 
 	//Name - Jerome Dinal Herath Muthukumaranage
 	//B no - B00708543
-	
+	//check for no of arugments 
 	System.out.println("Hello World: " + args[0] + ", " + args[1] + ", " + args[2]+", "+args[3]+", "+args[4]);
 
 	String s1="src/input.txt";
