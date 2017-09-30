@@ -136,6 +136,11 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 	Node temp = null;
 	try{
 	    temp = (Node) super.clone();
+        temp.bNumber = this.bNumber;
+        temp.leftChild = (Node) this.leftChild.clone();
+        temp.rightChild = (Node) this.rightChild.clone();
+        temp.courses = new ArrayList<String>(this.courses);
+        temp.observers = new ArrayList<ObserverInterface>(this.observers);
 	} catch (CloneNotSupportedException e){
 	    e.printStackTrace();
 	    System.exit(1);
