@@ -36,7 +36,25 @@ such a text file within the specified path.Even then the absolute path must be g
 --------------------------------------------------------
 ## Note :
 
-
+1.As per the guidelines for Assignment 2, it is assumed that the input.txt
+  and delete.txt would be well formatted. Therefore in extension the
+  program does not handle these cases:
+   a) A case for an empty input or delete text file.(output text files can
+      be nonexistant or empty)
+   b) A case where the formatting per line is not xxxx:T where x would each
+      be a nonnegative integer between 0 and 9 and T a course name of the
+      set {A,B,C,D,E,F,G,H,I,J,K}.
+   c) With this in Mind the BNumbers would range from 0000-9999 only.
+      All Bnumbers must have four digits irrespective of its numeric value.
+      Therefore 0 would be 0000 and 33 would be 0033 and vice verca.
+2.However repeated entries for a valid course per valid Student would be automatically
+  ignored within the program.
+3.The method implementations for BST were referenced and modified from
+  the book: Data Structures & Algorithms in Java(second edition) by 
+  Robert Lafore, p406-410. The code snippets were modified as per the 
+  requirements for the Assignment.
+4 The three instances of th same BinarySearchTree class is created within
+  TreebUilder.java
 
 --------------------------------------------------------
 "I have done this assignment completely on my own. I have not copied
@@ -52,11 +70,25 @@ offense.”
 
 --------------------------------------------------------
 
-justification for Data Structures used in this assignment in
-term of Big O complexity
+## justification for Data Structures & Time Complexity
 
+Data Structure : Binary Search Tree
+     	         
+find Nodes(search) : Θ(log(n)) (Average case)
+Insert Nodes(insert) : Θ(log(n)) (Average case)
+Space Complexity : O(n)
 
+No delete operation for nodes is implemented, since at no point would an
+inserted Node(student) would be deleted from the tree.
 
 --------------------------------------------------------
 
+## sample output
+
+     [java] initiating studentCoursesBackup
+     [java] master tree complete
+     [java] backup tree 1 complete
+     [java] backup tree 2 complete
+     [java] studentCoursesbackup complete: 
+     [java] check src/o1.txt, src/o2.txt, src/o3.txt for output
 
