@@ -11,7 +11,6 @@ public class FileProcessor
     private File inputFile=null;
     private FileReader fileReader=null;
     private BufferedReader bufferedReader=null;
-    // private String line;
     
     /**
      * constructor
@@ -32,7 +31,6 @@ public class FileProcessor
 
     /**
      *reads a line from an opened text file
-     *@param line the line to be returned
      *@return  returns the line as a String
      **/
     public String readLine() {
