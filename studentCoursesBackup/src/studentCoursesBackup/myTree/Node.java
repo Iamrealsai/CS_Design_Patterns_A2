@@ -166,11 +166,11 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
         e.printStackTrace();
         System.exit(1);
     }
-            temp.bNumber = this.bNumber;
+            /*temp.bNumber = this.bNumber;
         temp.leftChild = (Node) this.leftChild.clone();
         temp.rightChild = (Node) this.rightChild.clone();
         temp.courses = new ArrayList<String>(this.courses);
-        temp.observers = new ArrayList<ObserverInterface>(this.observers);
+        temp.observers = new ArrayList<ObserverInterface>(this.observers);*/
     System.out.println("about to return the Clone");
     return temp;
 

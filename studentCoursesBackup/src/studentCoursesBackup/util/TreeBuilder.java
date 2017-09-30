@@ -5,7 +5,7 @@ import studentCoursesBackup.util.FileProcessor;
 import studentCoursesBackup.binarySearchTree.BinarySearchTree;
 import studentCoursesBackup.binarySearchTree.TreeInterface;
 
-public class TreeBuilder
+public class TreeBuilder 
 {
    
     private TreeInterface masterTree;// main tree
@@ -114,8 +114,8 @@ public class TreeBuilder
 	    Node backupNode2=null;//= new Node();
 	    if(masterNode instanceof Cloneable){
 	    	System.out.println("Cloneable interface test passed");//------------------------------------------------------------
-		backupNode1 = masterNode.clone();
-		backupNode2 = masterNode.clone();
+		backupNode1 = (Node) masterNode.clone();
+		backupNode2 = (Node) masterNode.clone();
 		masterNode.registerObserver(backupNode1);
 		masterNode.registerObserver(backupNode2);
 	    }
