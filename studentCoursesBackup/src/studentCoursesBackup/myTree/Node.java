@@ -22,25 +22,8 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
 	observers = new ArrayList<ObserverInterface>();
 	leftChild = null;
 	rightChild = null;
-	//	operationIndex = 0;
     }
     
-    /**
-     *gets index for last operation, 1 for insertion & 2 for deletion
-     *@return the int value corresponding to operation
-     **/
-    /* private int getLastOperation(){
-	return operationIndex;
-	}*/
-
-    /**
-     *sets the int flag for last operation, 1 for insertion & 2 for deletion
-     *@param the int index to be updated
-     **/
-    /*private void setLastOperation(int iIn){
-	operationIndex = iIn;
-	}*/
-
     /**
      *gets the index of the node
      *@return the index(BNumber)
