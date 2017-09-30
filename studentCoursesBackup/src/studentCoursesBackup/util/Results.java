@@ -15,6 +15,7 @@ public class Results implements StdoutDisplayInterface, FileDisplayInterface
 
     /**
      *constructor
+     *@param the name of the output file
      **/
     public Results(String name){
 	text = "";
@@ -37,7 +38,6 @@ public class Results implements StdoutDisplayInterface, FileDisplayInterface
 	    fileWriter = new FileWriter(outputFileName);
 	    bufferedWriter = new BufferedWriter(fileWriter);
 	    bufferedWriter.write(this.getResults());
-	    //this.writeToStdout(this.getResults());
 	}catch(IOException e){
 	    e.printStackTrace();
 	}finally{
