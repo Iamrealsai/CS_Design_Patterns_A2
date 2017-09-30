@@ -16,22 +16,6 @@ public class BinarySearchTree implements TreeInterface
 	root = null;
     }
 
-    /**
-     *set method for root
-     *@param the new root node
-     **/
-    public void setRootNode(Node newRoot){
-	root = newRoot;
-    }
-
-    /**
-     *get mehtod for root
-     *@return the current root node
-     **/
-    public Node getRootNode(){
-	return root;
-    }
-
     //------------TreeInterface methods----------------
 
     /**
