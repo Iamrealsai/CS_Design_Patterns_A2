@@ -169,8 +169,8 @@ public class TreeBuilder
 		Node backupNode1=null;
 		Node backupNode2=null;
 		if(masterNode instanceof Cloneable){
-		    backupNode1 = (Node) masterNode.clone();
-		    backupNode2 = (Node) masterNode.clone();
+		    backupNode1 = masterNode.clone();
+		    backupNode2 = masterNode.clone();
 		    masterNode.registerObserver(backupNode1);
 		    masterNode.registerObserver(backupNode2);
 		}

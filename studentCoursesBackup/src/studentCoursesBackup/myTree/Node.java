@@ -95,9 +95,9 @@ public class Node implements SubjectInterface, ObserverInterface, Cloneable
     //------------Prototype Pattern Implementation------------------
     /**
      *Implementation of clone()
-     *@return a cloned Object
+     *@return a cloned Object Node
      **/
-    public Object clone(){
+    public Node clone(){
 	Node temp = null;
 	try{
 	    temp = (Node) super.clone();
