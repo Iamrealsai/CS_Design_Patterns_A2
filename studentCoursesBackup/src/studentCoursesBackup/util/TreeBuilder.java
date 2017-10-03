@@ -14,8 +14,8 @@ public class TreeBuilder
     private FileProcessor inputFile;//input file
     private FileProcessor deleteFile;//file with deleted courses
     private String line; //line read at each iteration from file
-    private String errorString;// to store an error message if an invalid course is found
     private boolean errorFlag;
+    private String errorMsg;// error message if course is invalid
 
     /**
      *Constructor
@@ -28,7 +28,8 @@ public class TreeBuilder
 	backupTree1 = new BinarySearchTree();
 	backupTree2 = new BinarySearchTree();
 	//------------------------------------------
-	errorflag=false;
+	errorFlag=false;
+	errorMsg="";
 	inputFile = new FileProcessor(inputFileName);
 	deleteFile = new FileProcessor(deleteFileName);
 	try{
@@ -42,7 +43,7 @@ public class TreeBuilder
 		populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
 		line = inputFile.readLine();
 	    }
-	    getErrorMsg("Input");
+	    setErrorMsg("Input");
 	    errorFlag=false;
 	    line ="";
 	    //----------delete operation----------------
@@ -55,7 +56,7 @@ public class TreeBuilder
 		trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
 		line = deleteFile.readLine();
 	    }
-	    getErrorMsg("Delete");
+	    setErrorMsg("Delete");
 	    errorFlag=false;
 	}catch(RuntimeException e){
 	    e.printStackTrace();
@@ -83,15 +84,11 @@ public class TreeBuilder
     }
 
     /**
-     *method to return an error messgae if invalid course is found
-     *@param the string value for input or  delete,based on the moment error was found
-     *@return the string error message
+     *outputs the error message for invalid courses
+     *@return the error message
      **/
-    public String getErrorMsg(String moment){
-	if(errorFlag==true){
-	    return "invalid course found in "+moment+" file, therefore some entrys were ignored";	    
-	}
-	return "";
+    public String getErrorMsg(){
+	return errorMsg;
     }
     
     //--------------helper functions------------------
@@ -174,6 +171,16 @@ public class TreeBuilder
 	return true;
     }
 
+        /**
+     *method to return an error messgae if invalid course is found
+     *@param the string value for input or  delete,based on the moment error was founde
+     **/
+    private void setErrorMsg(String moment){
+	if(errorFlag==true){
+	    errorMsg += "invalid course found in "+moment+" file, therefore some entrys were ignored\n";	    
+	}
+    }
+
     //-------------------Tree functions---------------------------------
     
     /**
@@ -218,8 +225,9 @@ public class TreeBuilder
      **/
     private void trimTrees(int nodeIndex){
 	Node nodeFromMaster = masterTree.find(nodeIndex);
-	if(nodeFromMaster!=null){
-	    String courseToDelete = findCourse(line);
+		    String courseToDelete = findCourse(line);
+		    if(nodeFromMaster!=null && isCourseValid(courseToDelete)){
+
 	    nodeFromMaster.deleteCourse(courseToDelete);
 	    nodeFromMaster.notifyAll(courseToDelete);
 	}

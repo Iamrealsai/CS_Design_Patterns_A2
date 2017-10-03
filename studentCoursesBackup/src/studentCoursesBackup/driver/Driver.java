@@ -25,6 +25,7 @@ public class Driver
 
 	    //---------------for master tree-------------------
 	    output1.writeToStdout("initiating studentCoursesBackup");
+	    output1.writeToStdout(myTreeBuilder.getErrorMsg());
 	    output1.storeNewResult(myTreeBuilder.getTree(0).printNodes());
 	    output1.writeToFile();
 	    output1.writeToStdout("master tree complete");
