@@ -33,7 +33,7 @@ public class TreeBuilder
 	    line = inputFile.readLine();
 	    while(line!=null){
 		if(!isFormatValid(line)){
-		    throw new RuntimeException("invalid line format in input.txt");
+		    throw new RuntimeException("invalid line format in input text file");
 		}
 		int tempIndex = getBNumber(line);
 		populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
@@ -44,7 +44,7 @@ public class TreeBuilder
 	    line = deleteFile.readLine();
 	    while(line!=null){
 		if(!isFormatValid(line)){
-		    throw new RuntimeException("invalid line format in delete.txt");
+		    throw new RuntimeException("invalid line format in text file for deleted courses");
 		}
 		int tempIndex = getBNumber(line);
 		trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
