@@ -135,6 +135,9 @@ public class TreeBuilder
 	if(sIn.length() > 6){
 	    return false;
 	}
+	if(sIn.trim().length()==0){
+	    return false;
+	}
 	String sub = sIn.substring(0,4);
 	String list ="0123456789";
 	int count =0;
