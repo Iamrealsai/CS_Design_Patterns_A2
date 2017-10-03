@@ -56,7 +56,7 @@ such text files within the specified path.Even then the absolute path must be gi
 2.However repeated entries for a valid course per valid Student would be automatically
   ignored within the program. If an invalidcourse is added with a nonexisting bNumber, 
   then that student(Node) will not be added into any tree. In such a case an error message will be
-  printed on terminal.
+  printed on terminal. This error message would be printed for an invalid delete operation as well.
 
 3.The method implementations for BST were referenced and modified from
   the book: Data Structures & Algorithms in Java(second edition) by 

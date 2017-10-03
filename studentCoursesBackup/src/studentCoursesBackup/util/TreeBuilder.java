@@ -171,7 +171,7 @@ public class TreeBuilder
 	return true;
     }
 
-        /**
+    /**
      *method to return an error messgae if invalid course is found
      *@param the string value for input or  delete,based on the moment error was founde
      **/
@@ -225,8 +225,8 @@ public class TreeBuilder
      **/
     private void trimTrees(int nodeIndex){
 	Node nodeFromMaster = masterTree.find(nodeIndex);
-		    String courseToDelete = findCourse(line);
-		    if(nodeFromMaster!=null && isCourseValid(courseToDelete)){
+	String courseToDelete = findCourse(line);
+	if(nodeFromMaster!=null && isCourseValid(courseToDelete)){
 
 	    nodeFromMaster.deleteCourse(courseToDelete);
 	    nodeFromMaster.notifyAll(courseToDelete);
