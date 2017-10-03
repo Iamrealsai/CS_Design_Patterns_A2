@@ -88,7 +88,10 @@ public class TreeBuilder
      *@return the string error message
      **/
     public String getErrorMsg(String moment){
-	return "invalid course found in "+moment+" file, therefore some entrys were ignored";
+	if(errorFlag==true){
+	    return "invalid course found in "+moment+" file, therefore some entrys were ignored";	    
+	}
+	return "";
     }
     
     //--------------helper functions------------------
