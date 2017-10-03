@@ -39,24 +39,24 @@ such text files within the specified path.Even then the absolute path must be gi
 1.As per the guidelines for Assignment 2, it is assumed that the input.txt
   and delete.txt would be well formatted. Therefore in extension it is assumed:
 
-   a) There will not be an empty input or delete text file.(output text files can
-      be nonexistant or empty)
-
-   b) A case where the formatting per line is not xxxx:T would not exist.
+   a) A case where the formatting per line is not xxxx:T would not exist.
       Where x would each be a nonnegative integer between 0 and 9 and T a course name 
       of the set {A,B,C,D,E,F,G,H,I,J,K}. Exceptions for the following cases have been 
       added : 
         -If any input line length in a text file > 6 an exception would be thrown and the program exits.
+        -If an input file(input/delete) is empty an exception is thrown and the program exits.
+        -if any intermediary line within the document is empty, an exception is thrown and the program exits.
         -If the BNumber has any value which is not an int, an exception would be thrown and the program exits.
 
-   c) With this in Mind the BNumbers would range from 0000-9999 only.
+   b) With this in Mind the BNumbers would range from 0000-9999 only.
       All Bnumbers must have four digits irrespective of its numeric value.
       Therefore 0 would be 0000 and 33 would be 0033 and vice verca. If this format is 
       not followed for BNumbers<1000 then an exception is thrown and the program exits.
 
 2.However repeated entries for a valid course per valid Student would be automatically
-  ignored within the program. If an invalid course is added with a nonexisting bNumber, then that
-  student(Node) will not be added into any tree.
+  ignored within the program. If an invalidcourse is added with a nonexisting bNumber, 
+  then that student(Node) will not be added into any tree. In such a case an error message will be
+  printed on terminal.
 
 3.The method implementations for BST were referenced and modified from
   the book: Data Structures & Algorithms in Java(second edition) by 
@@ -88,7 +88,7 @@ grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.”
 
-[Date: 10/02/2017]
+[Date: 10/03/2017]
 
 --------------------------------------------------------
 
@@ -108,9 +108,10 @@ inserted Node(student) would be deleted from the tree.
 ## sample output
 
      [java] initiating studentCoursesBackup
+     [java] 
      [java] master tree complete
      [java] backup tree 1 complete
      [java] backup tree 2 complete
      [java] studentCoursesbackup complete: 
-     [java] check src/o1.txt, src/o2.txt, src/o3.txt for output
+     [java] check src/output1.txt, src/output2.txt, src/output3.txt for output
 
