@@ -14,6 +14,8 @@ public class TreeBuilder
     private FileProcessor inputFile;//input file
     private FileProcessor deleteFile;//file with deleted courses
     private String line; //line read at each iteration from file
+    private String errorString;// to store an error message if an invalid course is found
+    private boolean errorFlag;
 
     /**
      *Constructor
@@ -26,6 +28,7 @@ public class TreeBuilder
 	backupTree1 = new BinarySearchTree();
 	backupTree2 = new BinarySearchTree();
 	//------------------------------------------
+	errorflag=false;
 	inputFile = new FileProcessor(inputFileName);
 	deleteFile = new FileProcessor(deleteFileName);
 	try{
@@ -39,6 +42,8 @@ public class TreeBuilder
 		populateTrees(tempIndex);//adds nodes or courses to trees(uses prototype pattern and Observer pattern)
 		line = inputFile.readLine();
 	    }
+	    getErrorMsg("Input");
+	    errorFlag=false;
 	    line ="";
 	    //----------delete operation----------------
 	    line = deleteFile.readLine();
@@ -50,6 +55,8 @@ public class TreeBuilder
 		trimTrees(tempIndex);//removes courses from nodes(uses Observer pattern) 
 		line = deleteFile.readLine();
 	    }
+	    getErrorMsg("Delete");
+	    errorFlag=false;
 	}catch(RuntimeException e){
 	    e.printStackTrace();
 	    System.exit(0);
@@ -73,6 +80,15 @@ public class TreeBuilder
 	    tempTree = backupTree2;
 	}
 	return tempTree;
+    }
+
+    /**
+     *method to return an error messgae if invalid course is found
+     *@param the string value for input or  delete,based on the moment error was found
+     *@return the string error message
+     **/
+    public String getErrorMsg(String moment){
+	return "invalid course found in "+moment+" file, therefore some entrys were ignored";
     }
     
     //--------------helper functions------------------
@@ -123,6 +139,7 @@ public class TreeBuilder
 		return true;
 	    }
 	}
+	errorFlag = true;// sets an error flag
 	return false;
     }
 
