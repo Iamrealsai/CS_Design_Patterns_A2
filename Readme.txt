@@ -44,7 +44,7 @@ such text files within the specified path.Even then the absolute path must be gi
       of the set {A,B,C,D,E,F,G,H,I,J,K}. Exceptions for the following cases have been 
       added : 
         -If any input line length in a text file > 6 an exception would be thrown and the program exits.
-        -If an input file(input/delete) is empty an exception is thrown and the program exits.
+        -If an input file(input/delete) is empty an exception is thrown and the program exits. 
         -if any intermediary line within the document is empty, an exception is thrown and the program exits.
         -If the BNumber has any value which is not an int, an exception would be thrown and the program exits.
 
